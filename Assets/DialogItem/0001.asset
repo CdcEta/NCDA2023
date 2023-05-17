@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7121173e70c8cd43ae96123086a2f60, type: 3}
+  m_Name: 0001
+  m_EditorClassIdentifier: 
+  dialogLength: 13
+  dialog:
+  - B
+  - "\u6211\u8FD9\u4E2A\u5C0F\u5E97\u5F00\u5728\u8FD9\u4E48\u504F\u50FB\u7684\u5730\u65B9\u90FD\u80FD\u88AB\u4F60\u627E\u5230\uFF0C\u770B\u6765\u4F60\u6025\u9700\u4E00\u628A\u8D81\u624B\u7684\u6B66\u5668\u554A"
+  - A
+  - "\u6B63\u5408\u6211\u610F\uFF0C\u6211\u786E\u5B9E\u6B63\u9700\u8981\u4E00\u628A\u8D81\u624B\u7684\u6B66\u5668"
+  - B
+  - "\u6211\u8FD9\u91CC\u6709\u4E0A\u597D\u7684\u6B66\u5668\uFF0C\u4EF7\u683C\u516C\u9053\uFF0C\u7AE5\u53DF\u65E0\u6B3A"
+  - A
+  - "\u8BE5\u600E\u4E48\u505A\uFF1F"
+  - C
+  - A
+  - "\u6211\u8EAB\u4E0A\u5E26\u7684\u94B1\u4E0D\u591A\uFF0C\u6240\u4EE5\u5982\u679C\u4F60\u4E0D\u60F3\u9001\u547D\u7684\u8BDD\uFF0C\u5C31\u7ED9\u6211\u4FBF\u5B9C\u4E00\u70B9"
+  - B
+  - "\u9976\u547D\uFF0C\u9976\u547D\uFF0C\u6211\u4E5F\u662F\u5C0F\u672C\u751F\u610F\uFF0C\u8FD9\u6837\uFF0C\u6211\u7ED9\u4F60\u534A\u4EF7\uFF0C\u5982\u4F55"
+  choiceLength: 3
+  choice:
+  - "\u4ED8\u6B3E\u4E70\u53D6\u6B66\u5668"
+  - "\u5A01\u80C1\u8001\u677F\u4EA4\u51FA\u6B66\u5668"
+  - "\u6740\u6B7B\u8001\u677F\u62A2\u593A\u6B66\u5668"

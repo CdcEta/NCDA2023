@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Ladder
+  - Platform
+  - Corner
+  - FragileFloor
+  - EnemyTrigger
+  - Weapon
+  - E001
+  - Obstacle
+  - Arrow
+  - DownAttack
+  - Item
+  - HeavyAttack
+  - EnemyArrow
+  - Entrance
+  - Skill
+  - Talkable
+  - GoldenCoin
+  - Diary
+  - BossChat
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Enemy
+  - Player
+  - Ground
+  - Background
+  - Ladder
+  - Platform
+  - FragileFloor
+  - Interaction
+  - Wall
+  - EnemyTrigger
+  - Weapon
+  - Item
+  - GoldenCoin
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background_1
+    uniqueID: 4101671251
+    locked: 0
+  - name: BackGround_2
+    uniqueID: 2609164699
+    locked: 0
+  - name: BackGround_3
+    uniqueID: 372601821
+    locked: 0
+  - name: BackGround_4
+    uniqueID: 2541545347
+    locked: 0
+  - name: BackGround_5
+    uniqueID: 3952930405
+    locked: 0
+  - name: Arrow
+    uniqueID: 3682045303
+    locked: 0
+  - name: Enemy
+    uniqueID: 3694322087
+    locked: 0
+  - name: Player
+    uniqueID: 3895484483
+    locked: 0
+  - name: UI
+    uniqueID: 1158658849
+    locked: 0
+  - name: BackGround_6
+    uniqueID: 3061382409
+    locked: 0

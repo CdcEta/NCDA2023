@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7121173e70c8cd43ae96123086a2f60, type: 3}
+  m_Name: 0012
+  m_EditorClassIdentifier: 
+  dialogLength: 4
+  dialog:
+  - A
+  - "\u56FD\u738B\uFF0C\u7EB3\u547D\u6765\u5427\uFF01"
+  - B
+  - "\u7AD6\u5B50,\u5C82\u6562\u5728\u6BBF\u5802\u4E4B\u4E0A\u7316\u72C2"
+  choiceLength: 0
+  choice: []
