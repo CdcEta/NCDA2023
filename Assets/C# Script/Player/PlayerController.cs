@@ -51,8 +51,16 @@ public class PlayerController : MonoBehaviour
     public float attackCalculation;
     public bool isHeavyAttack;
 
-    [Header("Arrow")]
+    [Header("Dash")]
+    [SerializeField] private float dashingPower = 20f;
+    [SerializeField]private float dashingTime = 0.2f;
+    [SerializeField] private float dashCoolingTime = 2f;
+    private bool canDash = true;
+    private bool isDashing;
 
+    
+    
+    
     [Header("Move")]
 
     public float runSpeed;
@@ -67,10 +75,7 @@ public class PlayerController : MonoBehaviour
 
     public float airSpeed;
     public float maxfalltime = 1f;
-    public float rollSpeed;
-    public float rollTime;
     private float rollTimer;
-    public float rollDistance;
     private Vector3 targetPosition;
 
     [Header("Jump")]
@@ -78,16 +83,16 @@ public class PlayerController : MonoBehaviour
     public int JumpCount;
     public float getUpSpeed;
 
-    [Header("Wall")]
+    [Header("Ground")]
     bool isTouchingFront;
-    public LayerMask Wall;
+
     public Transform groundCheck;
     public float checkRadiu;
     public Transform frontCheck;
-    private bool isWallSliding;
+
     private bool isOnCorner;
 
-    public float wallSlidingSpeed;
+
 
     [Header("DownAttack")]
     public float downAttackInterval = 0.5f;
@@ -155,22 +160,24 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+
         FindBound();
         animatorMoveOverrideController = new AnimatorOverrideController(anim.runtimeAnimatorController);
         anim.runtimeAnimatorController = animatorMoveOverrideController;
 
         isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadiu, Ground);
         //  isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadiu,Platform ) ;
-        isTouchingFront = (Physics2D.OverlapCircle(frontCheck.position, checkRadiu, Wall|Ground));
+        isTouchingFront = (Physics2D.OverlapCircle(frontCheck.position, checkRadiu, Ground));
         IsRun();
         WeaponSwitch();
         Jump();
         Roll();
-        WallSlide();
         DownAttack();
         HPControl();
         Drink();
         RecoveryCount.text = DrinkCount.ToString();
+        
+
     }
 
     public void FindBound()
@@ -186,43 +193,7 @@ public class PlayerController : MonoBehaviour
     {
         MyInpulse.GenerateImpulse();
     }
-    // private void Defense()
-    // {
-    //     if (Input.GetMouseButtonDown(1) && !isRoll && !isAttack && !isWallSliding && !isOnCorner)
-    //     {
-    //         isDefense = true;
-    //         anim.SetBool("Defensing", true);
-    //         rb.velocity = Vector2.zero;
-    //     }
-    //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDefensing"))
-    //         anim.SetBool("isDefensed", true);
-    //     if (anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDefensed"))
-    //         anim.SetBool("isDefensed", false);
-    //     if (Input.GetMouseButtonUp(1) && !isRoll && !isAttack && !isWallSliding && !isOnCorner)
-    //     {
-    //         isDefense = false;
-    //         anim.SetBool("Defensing", false);
-    //         anim.SetBool("isDefensed", false);
-    //     }
-    // }
-    private void WallSlide()
-    {
-        if (isTouchingFront && !isGround && horizontalmove != 0 && !isClimbLadder)
-        {
-            isWallSliding = true;
-        }
-        else
-        {
-            isWallSliding = false;
-            anim.SetBool("Sliding", false);
-        }
-        if (isWallSliding)
-        {
-            anim.SetBool("Sliding", true);
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, 200));
-        }
-
-    }
+    
     private void DownAttack()
     {
         downAttackTimer+= Time.deltaTime;
@@ -333,36 +304,25 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+
     private void Roll()
     {
        
         rollTimer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.LeftShift) && rollTimer > rollTime&&!isAttack&&!isOnCorner)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && rollTimer > dashCoolingTime&&!isAttack&&!isOnCorner)
         {
             isRoll = true;
             rb.gravityScale = 0;
-            if(!isWallSliding)
-                targetPosition = new Vector3(-transform.localScale.x * rollDistance + transform.position.x,transform.position.y,transform.position.z);
-            else
-            { 
-                isWallSliding = false;
-                anim.SetBool("Sliding", false);
-                transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y);
-                targetPosition = new Vector3(transform.localScale.x * rollDistance + transform.position.x,transform.position.y,transform.position.z);
- 
-            }
-            // rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-
             anim.SetTrigger("Rolling");
             SoundManager.instance.Roll();
             rollTimer = 0;
         }
         
-        if (isRoll)
+        if (isRoll&&!isOnCorner)
         {
             if(!isTouchingFront)
-                transform.position = Vector3.MoveTowards(transform.position,targetPosition,rollSpeed*Time.deltaTime);
-            ShadowPool.instance.GetFromPool();
+                rb.velocity = new Vector2(-transform.localScale.x * dashingPower, 0f);
         }
     }
     private void Jump()
@@ -392,7 +352,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
             SoundManager.instance.Jump();
         }
-        if (Input.GetButtonDown("Jump") && !isGround && JumpCount > 0 && !isAttack && !isWallSliding && !isOnCorner)
+        if (Input.GetButtonDown("Jump") && !isGround && JumpCount > 0 && !isAttack && !isOnCorner)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
             anim.Play("PlayerJump", 0, 0f);
@@ -424,15 +384,15 @@ public class PlayerController : MonoBehaviour
     public void RollOver()
     {
         isRoll = false;
-        rb.gravityScale = gameGravity;
+        if(!isOnCorner)
+            rb.gravityScale = gameGravity;
     }
     public void CornerMove()
     {
         isOnCorner = false;
         rb.velocity = Vector2.zero;
-
         this.transform.position = new Vector3(this.transform.position.x - this.transform.localScale.x * 38.8f, this.transform.position.y + 28.4f, this.transform.position.z);
-        rb.gravityScale = gameGravity;
+         rb.gravityScale = gameGravity;
 
 
 
@@ -510,31 +470,26 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Corner") && this.transform.localScale.x * collision.transform.localScale.x < 0 && !anim.GetBool("DownAttacking") && !isAttack)
+        if (collision.CompareTag("Corner") && !isRoll&&this.transform.localScale.x * collision.transform.localScale.x < 0 && !anim.GetBool("DownAttacking") && !isAttack)
         {
 
             rb.velocity = Vector2.zero;
             isOnCorner = true;
-            this.transform.position = new Vector3(collision.transform.position.x - 2.3f, collision.transform.position.y + 19f, this.transform.position.z);
+            this.transform.position = new Vector3(collision.transform.position.x - 5f, collision.transform.position.y + 25f, this.transform.position.z);
             anim.SetTrigger("OnCorner");
             rb.gravityScale = 0;
             //  Invoke("CornerMove", 0.45f);
-        }
-
-        //��ƽ̨
-        if (collision.CompareTag("FragileFloor") && anim.GetBool("DownAttacking"))
-        {
-            collision.gameObject.SetActive(false);
         }
 
         if (collision.CompareTag("EnemyArrow"))
         {
             GetLightHit(collision.transform.parent.localScale.x, collision.GetComponentInParent<EnemyArrow>().attackPower);
         }
+        
         //�жϹ������
         if (collision.CompareTag("EnemyTrigger"))
         {
-            Debug.Log("123456");
+            
             if (!collision.GetComponentInParent<Enemy>().isHeavyAttack)
             {
 
@@ -584,27 +539,21 @@ public class PlayerController : MonoBehaviour
             case 3:
                 Attack_003();
                 break;
-            case 4:
-                Attack_004();//003=004
-                break;
+
             case 5:
                 Attack_005();
                 break;
-            case 6:
-                Attack_006();
-                break;
+
             case 7:
                 Attack_007();//003=007
                 break;
-            case 8:
-                Attack_008();
-                break;
+
         }
     }
     private void Attack_001()
     {
 
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isWallSliding && !isOnCorner)
+        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isOnCorner)
         {
             isAttack = true;
             comboStep++;
@@ -662,7 +611,7 @@ public class PlayerController : MonoBehaviour
     private void Attack_002()
     {
 
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isWallSliding && !isOnCorner)
+        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack  && !isOnCorner)
         {
 
             SoundManager.instance.Shoot();
@@ -676,7 +625,7 @@ public class PlayerController : MonoBehaviour
     private void Attack_003()
     {
 
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isWallSliding && !isOnCorner)
+        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack  && !isOnCorner)
         {
             isAttack = true;
             comboStep++;
@@ -708,54 +657,6 @@ public class PlayerController : MonoBehaviour
                 isHeavyAttack = true;
                 AttackCalculation(2);
                 SoundManager.instance.Axe01();
-            }
-            timer = interval;
-            anim.SetTrigger("Attacking");
-            anim.SetInteger("ComboStep", comboStep);
-        }
-
-        /*     timer -= Time.deltaTime;
-             if (timer <= 0)
-             {
-                 timer = interval;
-                 comboStep = 0;
-             }*/
-    }
-    private void Attack_004()
-    {
-
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isWallSliding && !isOnCorner)
-        {
-            isAttack = true;
-            comboStep++;
-            rb.gravityScale = 0;
-            rb.velocity = Vector2.zero;
-            /*         if (comboStep != 2)
-                     {
-                         rb.velocity = new Vector2(-transform.localScale.x * lightspeed, rb.velocity.y);
-                         SoundManager.instance.Sword01();
-
-                     }
-                     else
-                     {
-                         rb.velocity = new Vector2(-transform.localScale.x * lightspeed * 2f, rb.velocity.y);
-                         SoundManager.instance.Sword02();
-                     }*/
-
-
-            if (comboStep > 2)
-                comboStep = 1;
-            if (comboStep == 1)
-            {
-                isHeavyAttack = false;
-                AttackCalculation(1);
-                SoundManager.instance.Lance01();
-            }
-            else
-            {
-                isHeavyAttack = true;
-                AttackCalculation(2);
-                SoundManager.instance.Lance01();
             }
             timer = interval;
             anim.SetTrigger("Attacking");
@@ -772,7 +673,7 @@ public class PlayerController : MonoBehaviour
     private void Attack_005()
     {
 
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isWallSliding && !isOnCorner)
+        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isOnCorner)
         {
             isHeavyAttack = false;
             isAttack = true;
@@ -820,63 +721,11 @@ public class PlayerController : MonoBehaviour
             comboStep = 0;
         }
     }
-    private void Attack_006()
-    {
-
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isWallSliding && !isOnCorner)
-        {
-            isAttack = true;
-            comboStep++;
-            rb.gravityScale = 0;
-            rb.velocity = Vector2.zero;
-            if (comboStep > 3)
-                comboStep = 1;
-
-            if (comboStep != 3)
-            {
-                isHeavyAttack = false;
-                if (comboStep == 1)
-                {
-                    AttackCalculation(1);
-                   
-                }
-                else
-                {
-                    AttackCalculation(2);
-                 
-                }
-
-                SoundManager.instance.Shoot();
-
-            }
-            else
-            {
-                isHeavyAttack = true;
-                AttackCalculation(3);
-                Invoke("ConstantShoot",0);
-                Invoke("ConstantShoot", 0.35f);
-                Invoke("ConstantShoot", 0.7f);
-            }
-
-
-
-            timer = interval;
-            anim.SetTrigger("Attacking");
-            anim.SetInteger("ComboStep", comboStep);
-        }
-
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            timer = interval;
-            comboStep = 0;
-        }
-
-    }
+   
     private void Attack_007()
     {
 
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isWallSliding && !isOnCorner)
+        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack&& !isOnCorner)
         {
             isAttack = true;
             comboStep++;
@@ -921,56 +770,6 @@ public class PlayerController : MonoBehaviour
                  timer = interval;
                  comboStep = 0;
              }*/
-    }
-    private void Attack_008()
-    {
-
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isWallSliding && !isOnCorner)
-        {
-            isAttack = true;
-            comboStep++;
-            rb.gravityScale = 0;
-            rb.velocity = Vector2.zero;
-            if (comboStep > 3)
-                comboStep = 1;
-
-            if (comboStep != 3)
-            {
-                isHeavyAttack = false;
-                if (comboStep == 1)
-                {
-                    AttackCalculation(1);
-                }
-                else
-                {
-                    AttackCalculation(2);
-                }
-
-                SoundManager.instance.Lance01();
-
-            }
-            else
-            {
-                isHeavyAttack = true;
-                AttackCalculation(3);
-
-                SoundManager.instance.Lance02();
-            }
-
-
-
-            timer = interval;
-            anim.SetTrigger("Attacking");
-            anim.SetInteger("ComboStep", comboStep);
-        }
-
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            timer = interval;
-            comboStep = 0;
-        }
-
     }
     private void ConstantShoot()
     {
