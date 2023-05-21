@@ -88,13 +88,21 @@ public class Enemy : MonoBehaviour
     [Header("Defense")]
     public bool isDefense;
     protected bool DefenseAttack;
-    // Start is called before the first frame update
+    
+    
+    [Header("Material")]
+    private Material material;
 
+    private bool isDissolving = false;
+
+    private float fade = 1f;
+    // Start is called before the first frame update
+    
     protected PlayerController playerController;
 
     protected virtual void  Start()
     {
-            
+        material = GetComponent<SpriteRenderer>().material;
         moneyInWorld.GetComponent<GoldenCoin>().value = deadMoneyValue;
         layerMask = (1 << 7) | (1 << 8);
         layerMask = ~layerMask;
@@ -106,6 +114,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
+        Dissolve();
         hurtTimer += Time.deltaTime;
         HPControl();
     }
@@ -192,6 +201,7 @@ public class Enemy : MonoBehaviour
         if (hp == 0&&!isLeaveMoney)
         {
             anim.SetBool("Die", true);
+            isDissolving = true;
             isDead = true;
             Money(deadMoneyNum);
             isLeaveMoney = true;
@@ -526,9 +536,7 @@ public class Enemy : MonoBehaviour
             {
                 DefenseAttack = true;
             }
-
         }
-
     }
     private void Money(int num)
     {
@@ -537,4 +545,23 @@ public class Enemy : MonoBehaviour
             Instantiate(moneyInWorld,transform.position,transform.rotation);
         }
     }
+
+
+    private void Dissolve()
+    {
+
+        if (isDissolving)
+        {
+            fade -= Time.deltaTime;
+
+            if (fade<=0f)
+            {
+                fade = 0f;
+                isDissolving = false;
+            }
+            material.SetFloat("_Fade",fade);
+        }
+    }
+    
 }
+    
