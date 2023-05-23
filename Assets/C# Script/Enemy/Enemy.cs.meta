@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: ae163f5b6b0ca9e4abe956c5e9eca312
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - moneyInWorld: {fileID: 2150591604492986435, guid: dc3902d588c7651418cc83d45c11d1af, type: 3}
+  - hurtArtical: {instanceID: 0}
+  - floatPoint: {instanceID: 0}
+  - groundCheck: {instanceID: 0}
+  - frontCheck: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

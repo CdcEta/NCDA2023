@@ -27,7 +27,7 @@ TextureImporter:
       213: 6807865360449428035
     second: PlayerRoll_7
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -48,7 +48,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -87,7 +86,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -306,15 +304,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      PlayerRoll_6: 9213914067136178907
-      PlayerRoll_5: 638890921481729243
-      PlayerRoll_4: 4991590054906542046
-      PlayerRoll_2: -2946986542693346971
-      PlayerRoll_1: -5837861704598655815
-      PlayerRoll_0: 876880006752475085
-      PlayerRoll_7: 6807865360449428035
-      PlayerRoll_3: 3169666385912282470
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
