@@ -51,7 +51,7 @@ TextureImporter:
       213: -5889849408934098347
     second: boss01Attack02_15
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -72,7 +72,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -111,7 +110,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -498,23 +496,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      boss01Attack02_0: -7839885250230499685
-      boss01Attack02_7: 7382625364150968714
-      boss01Attack02_12: 8303847948907178701
-      boss01Attack02_10: 3995547946643663988
-      boss01Attack02_9: 4298790799086128804
-      boss01Attack02_6: -633215087161251322
-      boss01Attack02_14: -5131407860952281213
-      boss01Attack02_13: 2565964527574982770
-      boss01Attack02_5: 4327902153327430132
-      boss01Attack02_3: 6004508642944596186
-      boss01Attack02_8: 6111433550240153226
-      boss01Attack02_1: -3946380163082990969
-      boss01Attack02_2: 3933294097891703865
-      boss01Attack02_4: -5556574340913977819
-      boss01Attack02_15: -5889849408934098347
-      boss01Attack02_11: -4955126475076584286
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

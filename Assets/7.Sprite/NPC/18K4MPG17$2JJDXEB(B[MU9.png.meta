@@ -12,7 +12,7 @@ TextureImporter:
       213: -6004930160646448295
     second: 18K4MPG17$2JJDXEB(B[MU9_2
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -72,7 +71,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -186,10 +184,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      18K4MPG17$2JJDXEB(B[MU9_2: -6004930160646448295
-      18K4MPG17$2JJDXEB(B[MU9_1: -5373633344420245852
-      18K4MPG17$2JJDXEB(B[MU9_0: -6270648241172952723
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

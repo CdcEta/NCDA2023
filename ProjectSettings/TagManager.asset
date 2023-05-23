@@ -44,7 +44,7 @@ TagManager:
   - Weapon
   - Item
   - GoldenCoin
-  - 
+  - TopEffects
   - 
   - 
   - 
@@ -85,9 +85,12 @@ TagManager:
   - name: Player
     uniqueID: 3895484483
     locked: 0
-  - name: UI
-    uniqueID: 1158658849
+  - name: Effect
+    uniqueID: 1535863947
     locked: 0
   - name: BackGround_6
     uniqueID: 3061382409
+    locked: 0
+  - name: UI
+    uniqueID: 1158658849
     locked: 0

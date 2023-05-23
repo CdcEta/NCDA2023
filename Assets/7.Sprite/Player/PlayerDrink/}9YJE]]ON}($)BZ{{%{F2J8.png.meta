@@ -51,7 +51,7 @@ TextureImporter:
       213: 2777426202735883732
     second: '}9YJE]]ON}($)BZ{{%{F2J8_15'
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -72,7 +72,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -111,7 +110,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -498,23 +496,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      '}9YJE]]ON}($)BZ{{%{F2J8_9': 8502575635915649945
-      '}9YJE]]ON}($)BZ{{%{F2J8_5': -2000709292556032886
-      '}9YJE]]ON}($)BZ{{%{F2J8_7': 6949882644216399207
-      '}9YJE]]ON}($)BZ{{%{F2J8_12': 8989731058427871648
-      '}9YJE]]ON}($)BZ{{%{F2J8_11': 2296828511628379094
-      '}9YJE]]ON}($)BZ{{%{F2J8_14': 4773599190326420878
-      '}9YJE]]ON}($)BZ{{%{F2J8_15': 2777426202735883732
-      '}9YJE]]ON}($)BZ{{%{F2J8_3': -8810086786644880288
-      '}9YJE]]ON}($)BZ{{%{F2J8_2': -4882659017343419935
-      '}9YJE]]ON}($)BZ{{%{F2J8_8': 1225821446798397207
-      '}9YJE]]ON}($)BZ{{%{F2J8_4': 5859819338775840501
-      '}9YJE]]ON}($)BZ{{%{F2J8_13': 5017883950341923408
-      '}9YJE]]ON}($)BZ{{%{F2J8_6': -4239685459068106815
-      '}9YJE]]ON}($)BZ{{%{F2J8_10': 4423640577925521953
-      '}9YJE]]ON}($)BZ{{%{F2J8_0': 1178030606604971878
-      '}9YJE]]ON}($)BZ{{%{F2J8_1': 6845883760733987113
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

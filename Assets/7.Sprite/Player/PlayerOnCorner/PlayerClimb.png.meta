@@ -21,7 +21,7 @@ TextureImporter:
       213: 8046359987334711640
     second: PlayerClimb_5
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -42,7 +42,6 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -81,7 +80,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -258,13 +256,6 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      PlayerClimb_0: -8785086956022851063
-      PlayerClimb_1: 2505607305355808016
-      PlayerClimb_5: 8046359987334711640
-      PlayerClimb_2: 2756701434220601250
-      PlayerClimb_4: -5115477939420034960
-      PlayerClimb_3: 8601763016563551598
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
