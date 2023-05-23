@@ -11450,7 +11450,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284463313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -281.86127, y: 8.682919, z: 89.801895}
+  m_LocalPosition: {x: -394.3141, y: 9.061443, z: 89.801895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 298123194}
@@ -36853,7 +36853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cbd2e07f88f929429d3795c7137c4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinemaCollider: {fileID: 0}
+  cinemaCollider: {fileID: 1563667003}
   Ground:
     serializedVersion: 2
     m_Bits: 256

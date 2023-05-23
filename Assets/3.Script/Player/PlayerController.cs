@@ -207,7 +207,7 @@ public class PlayerController : MonoBehaviour
         if ((rb.velocity == Vector2.zero || isGround) && anim.GetBool("DownAttacking"))
         {
             IsShake();
-            SoundManager.instance.DownAttack();
+            //SoundManager.instance.DownAttack();
             anim.SetBool("DownAttacking", false);
             Invoke("DownAttackGetUp", 0.6f);
             Instantiate(downAttackPaticle,transform.position,transform.rotation);
@@ -255,11 +255,11 @@ public class PlayerController : MonoBehaviour
         if (isRun && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerHeavyHurt"))
         {
 
-            SoundManager.instance.Run();
+            ////SoundManager.instance.Run();
         }
         else
         {
-            SoundManager.instance.RunStop();
+           // //SoundManager.instance.RunStop();
         }
 
 
@@ -315,7 +315,7 @@ public class PlayerController : MonoBehaviour
             isRoll = true;
             rb.gravityScale = 0;
             anim.SetTrigger("Rolling");
-            SoundManager.instance.Roll();
+            //SoundManager.instance.Roll();
             rollTimer = 0;
         }
         
@@ -350,14 +350,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGround && !isAttack && !isRoll && !isOnCorner && !isDead && !isGetUp)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
-            SoundManager.instance.Jump();
+            //SoundManager.instance.Jump();
         }
         if (Input.GetButtonDown("Jump") && !isGround && JumpCount > 0 && !isAttack && !isOnCorner)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
             anim.Play("PlayerJump", 0, 0f);
             JumpCount -= 1;
-            SoundManager.instance.Jump();
+            //SoundManager.instance.Jump();
         }
 
 
@@ -415,7 +415,7 @@ public class PlayerController : MonoBehaviour
             AttackOver();
             FloatPoint(hurtCalculation);
             RedShine.SetTrigger("Shining");
-            SoundManager.instance.Hurt();
+            //SoundManager.instance.Hurt();
         }
     }
     private void GetLightHit(float hurtDirection, float hurtCalculation)
@@ -430,7 +430,7 @@ public class PlayerController : MonoBehaviour
             FloatPoint(hurtCalculation);
             AttackOver();
             RedShine.SetTrigger("Shining");
-            SoundManager.instance.Hurt();
+            //SoundManager.instance.Hurt();
         }
     }
 
@@ -510,7 +510,7 @@ public class PlayerController : MonoBehaviour
                 anim.SetTrigger("HeavyHurting");
                 AttackOver();
                 FloatPoint(20);
-                SoundManager.instance.Hurt();
+                //SoundManager.instance.Hurt();
             }
         }
 
@@ -574,7 +574,7 @@ public class PlayerController : MonoBehaviour
                     AttackCalculation(2);
                 }
 
-                SoundManager.instance.Sword01();
+                //SoundManager.instance.Sword01();
 
             }
             else
@@ -582,7 +582,7 @@ public class PlayerController : MonoBehaviour
                 isHeavyAttack = true;
                 AttackCalculation(3);
 
-                SoundManager.instance.Sword02();
+                //SoundManager.instance.Sword02();
             }
 
 
@@ -614,7 +614,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack  && !isOnCorner)
         {
 
-            SoundManager.instance.Shoot();
+            //SoundManager.instance.Shoot();
             rb.velocity = Vector2.zero;
             isAttack = true;
             rb.gravityScale = 0;
@@ -634,13 +634,13 @@ public class PlayerController : MonoBehaviour
             /*         if (comboStep != 2)
                      {
                          rb.velocity = new Vector2(-transform.localScale.x * lightspeed, rb.velocity.y);
-                         SoundManager.instance.Sword01();
+                         //SoundManager.instance.Sword01();
 
                      }
                      else
                      {
                          rb.velocity = new Vector2(-transform.localScale.x * lightspeed * 2f, rb.velocity.y);
-                         SoundManager.instance.Sword02();
+                         //SoundManager.instance.Sword02();
                      }*/
 
 
@@ -650,13 +650,13 @@ public class PlayerController : MonoBehaviour
             {
                 isHeavyAttack = false;
                 AttackCalculation(1);
-                SoundManager.instance.Axe01();
+                //SoundManager.instance.Axe01();
             }
             else
             {
                 isHeavyAttack = true;
                 AttackCalculation(2);
-                SoundManager.instance.Axe01();
+                //SoundManager.instance.Axe01();
             }
             timer = interval;
             anim.SetTrigger("Attacking");
@@ -695,7 +695,7 @@ public class PlayerController : MonoBehaviour
                     AttackCalculation(2);
                 }
                 rb.velocity = new Vector2(-transform.localScale.x * lightspeed, rb.velocity.y);
-                SoundManager.instance.Sword01();
+                //SoundManager.instance.Sword01();
 
             }
             else
@@ -703,7 +703,7 @@ public class PlayerController : MonoBehaviour
 
                 AttackCalculation(3);
                 rb.velocity = new Vector2(-transform.localScale.x * lightspeed * 2f, rb.velocity.y);
-                SoundManager.instance.Sword02();
+                //SoundManager.instance.Sword02();
             }
 
 
@@ -734,13 +734,13 @@ public class PlayerController : MonoBehaviour
             /*         if (comboStep != 2)
                      {
                          rb.velocity = new Vector2(-transform.localScale.x * lightspeed, rb.velocity.y);
-                         SoundManager.instance.Sword01();
+                         //SoundManager.instance.Sword01();
 
                      }
                      else
                      {
                          rb.velocity = new Vector2(-transform.localScale.x * lightspeed * 2f, rb.velocity.y);
-                         SoundManager.instance.Sword02();
+                         //SoundManager.instance.Sword02();
                      }*/
 
 
@@ -750,13 +750,13 @@ public class PlayerController : MonoBehaviour
             {
                 isHeavyAttack = false;
                 AttackCalculation(1);
-                SoundManager.instance.Axe01();
+                //SoundManager.instance.Axe01();
             }
             else
             {
                 isHeavyAttack = true;
                 AttackCalculation(2);
-                SoundManager.instance.Axe02();
+                //SoundManager.instance.Axe02();
                 Invoke("ConstantAxe", 0.5f);
             }
             timer = interval;
@@ -773,11 +773,11 @@ public class PlayerController : MonoBehaviour
     }
     private void ConstantShoot()
     {
-        SoundManager.instance.Shoot();
+        //SoundManager.instance.Shoot();
     }
     private void ConstantAxe()
     {
-        SoundManager.instance.Axe01();
+        //SoundManager.instance.Axe01();
     }
     private void MoneyPoint()
     {

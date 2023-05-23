@@ -61,35 +61,41 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background_1
+  - name: "\u80CC\u666F"
     uniqueID: 4101671251
     locked: 0
-  - name: BackGround_2
+  - name: "\u8FDC\u666F"
     uniqueID: 2609164699
     locked: 0
-  - name: BackGround_3
+  - name: "\u4E2D\u666F"
     uniqueID: 372601821
     locked: 0
-  - name: BackGround_4
+  - name: "\u96FE"
+    uniqueID: 3810921799
+    locked: 0
+  - name: "\u8FD1\u666F"
     uniqueID: 2541545347
     locked: 0
-  - name: BackGround_5
+  - name: "\u5EFA\u7B51\u5899\u9762"
     uniqueID: 3952930405
     locked: 0
-  - name: Arrow
+  - name: "\u540E\u7F6E\u5730\u9762"
     uniqueID: 3682045303
     locked: 0
-  - name: Enemy
+  - name: "npc\u548C\u654C\u4EBA"
     uniqueID: 3694322087
     locked: 0
   - name: Player
     uniqueID: 3895484483
     locked: 0
+  - name: "\u524D\u7F6E\u5730\u9762"
+    uniqueID: 3061382409
+    locked: 0
   - name: Effect
     uniqueID: 1535863947
     locked: 0
-  - name: BackGround_6
-    uniqueID: 3061382409
+  - name: "\u524D\u666F"
+    uniqueID: 671478507
     locked: 0
   - name: UI
     uniqueID: 1158658849
