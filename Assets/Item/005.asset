@@ -21,4 +21,4 @@ MonoBehaviour:
   ArrowImage: {fileID: 0}
   itemInfo: 
   level: 0
-  WeaponAttackPower: 1
+  WeaponAttackPower: 50
