@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57185986ca388ab478c9a07725d66f2a, type: 3}
-  m_Name: 001
+  m_Name: SwordProperty
   m_EditorClassIdentifier: 
   itemName: "\u8BD5\u505A\u94C1\u5251"
   money: 700
@@ -21,9 +21,4 @@ MonoBehaviour:
   ArrowImage: {fileID: 0}
   itemInfo: "\u666E\u901A\u7684\u7687\u5BA4\u4F69\u5251\uFF0C\u8D28\u91CF\u4E0A\u4E58\uFF0C\u4F46\u662F\u4E5F\u4E0D\u7B97\u662F\u7A00\u6709\u3002"
   level: 1
-  WeaponAttackPower: 0a000000140000001e000000
-  magnification:
-  - 1
-  - 1
-  - 1
-  - 1
+  WeaponAttackPower: 10

@@ -7,27 +7,23 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_2DDissolveShader
-  m_Shader: {fileID: -6465566751694194690, guid: 0e3d9d0a3f1b3924ebb60a45ccd8ed8f, type: 3}
+  m_Name: Shader Graphs_Bloom
+  m_Shader: {fileID: -6465566751694194690, guid: 54a680133ba03014fa0999449337c610, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_0aa64128dc9b4530a9b26d9ca446b73f:
-        m_Texture: {fileID: 2800000, guid: 0a2ab0054c6e7a24fb6d3afa12de0063, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
+    - _Emission:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTexture:
+    - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -43,12 +39,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - Vector1_a821e34d119e46149f62374c4e740389: 0.5
-    - Vector1_e2493270d4914786b14f4551a64a6290: 0
-    - _Fade: 1
+    m_Floats: []
     m_Colors:
-    - Color_25a9867f4dfc4907a7b301c3abdfbd71: {r: 1, g: 1, b: 1, a: 0}
-    - Color_97abb3feb5254b9799e9f91996e0549a: {r: 0.16509432, g: 1, b: 0.28663117, a: 0}
-    - _Color: {r: 0.019819975, g: 1, b: 0, a: 0}
+    - _Color: {r: 5.992157, g: 5.992157, b: 5.992157, a: 0}
   m_BuildTextureStacks: []

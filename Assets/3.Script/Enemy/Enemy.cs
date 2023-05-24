@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine.Utility;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,7 +43,8 @@ public class Enemy : MonoBehaviour
     public float attackCalculation;
     public float attackCoolingTime;
 
-    [Header("Hurt")]
+    [Header("Hurt")] public GameObject lightHurtEffect;
+    public GameObject HeavyHurtEffect;
     public float lightHurtSpeed;
     public float heavyHurtSpeed;
     protected bool isLightHurt;
@@ -88,25 +90,31 @@ public class Enemy : MonoBehaviour
     [Header("Defense")]
     public bool isDefense;
     protected bool DefenseAttack;
-    
-    
-    [Header("Material")]
-    private Material material;
 
+
+    [Header("Material")] 
+    public float NormalIntensity = 0.5f;
+    public float flashIntensity = 100f;
+    public float flashTime = 0.5f;
+    private Material material;
+    
     private bool isDissolving = false;
 
     private float fade = 1f;
+    [SerializeField]private PlayerController playerController;
+    
+    
     // Start is called before the first frame update
     
-    protected PlayerController playerController;
+
 
     protected virtual void  Start()
     {
+        playerController = FindObjectOfType<PlayerController>();;
         material = GetComponent<SpriteRenderer>().material;
         moneyInWorld.GetComponent<GoldenCoin>().value = deadMoneyValue;
         layerMask = (1 << 7) | (1 << 8);
         layerMask = ~layerMask;
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         player = playerController.transform;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -366,14 +374,13 @@ public class Enemy : MonoBehaviour
     protected void Hurt()
     {
        // isFind = true;
-        info = anim.GetCurrentAnimatorStateInfo(0);
 
+        info = anim.GetCurrentAnimatorStateInfo(0);
         if (isLightHurt)
         {
             rb.velocity = hurtDirection * lightHurtSpeed;
             isLightHurt = false;
         }
-    
         if (isHeavyHurt)
         {
             rb.velocity = hurtDirection * heavyHurtSpeed;
@@ -381,64 +388,41 @@ public class Enemy : MonoBehaviour
                 isHeavyHurt = false;
         }
     }
-    protected void RedShine()
-    {
-        GetComponent<SpriteRenderer>().color = Color.red;
-    }
-    protected void WhiteShine()
-    {
-        GetComponent<SpriteRenderer>().color = Color.white;
-    }
-    private void BossHurt()
-    {
-        Invoke("RedShine",0);
-        Invoke("WhiteShine", 0.1f);
 
-    }
-
-    private bool Canhurt()    
+    private IEnumerator HurtFlash()
     {
-        if (hurtTimer >= hurtTime)
+        material.SetFloat("_Damaged", flashIntensity);
+        yield return new WaitForSeconds(flashTime);
+        material.SetFloat("_Damaged",NormalIntensity);
+    }
+    
+    public void GetHit(Vector2 hurtDirection,int hurtType)
+    {
+        Debug.Log("已受伤");
+        FloatPoint(playerController.attackCalculation);
+        hp -= playerController.attackCalculation;
+        AudioHurt();
+        StartCoroutine(HurtFlash());
+        Instantiate(hurtArtical, transform.position,transform.rotation,transform);
+        if (hurtType == 1)
         {
-            hurtTimer = 0;
-            return true;
+            isLightHurt = true;
+            lightHurtEffect.SetActive(true);
+            anim.SetTrigger("LightHurting");
         }
         else
-            return false;
-    }
-    public void GetLightHit(Vector2 hurtDirection)
-    {
-        Instantiate(hurtArtical, transform.position,transform.rotation,transform);
-        if (!isBoss)
         {
-            hurtArtical.transform.localScale = new Vector3(hurtDirection.x, 1, 1);
+            isHeavyHurt = true;
+            HeavyHurtEffect.SetActive(true);
+            anim.SetTrigger("HeavyHurting");
+            playerController.IsShake();
+        }
+        transform.localScale = new Vector3(hurtDirection.x, 1, 1);
+        hurtArtical.transform.localScale = new Vector3(hurtDirection.x, 1, 1);
             isLightHurt = true;
             this.hurtDirection = hurtDirection;
-            anim.SetTrigger("LightHurting");
-
-        }
-        else
-        {
-            BossHurt();
-        }
     }
-    public void GetHeavyHit(Vector2 hurtDirection)
-    {
-        Instantiate(hurtArtical,transform);
-        hurtArtical.transform.localScale = new Vector3(hurtDirection.x, 1, 1);
-        if (!isBoss)
-        {
-            transform.localScale = new Vector3(hurtDirection.x, 1, 1);
-            isHeavyHurt = true;
-            this.hurtDirection = hurtDirection;
-            anim.SetTrigger("HeavyHurting");
 
-        }
-        else
-        {
-            BossHurt();
-        }
-    }
     public void AttackCalculation(float magnification)
     {
        
@@ -456,88 +440,7 @@ public class Enemy : MonoBehaviour
             isAttack = false;
         }
     }
-    protected void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!isDead&&Canhurt())
-        {
-            if (collision.CompareTag("DownAttack"))
-            {
-                 FloatPoint(18);
-                hp -= 18;
-                AudioHurt();
-                playerController.IsShake();
-                if (player.position.x > transform.position.x)
-                {
-                    GetHeavyHit(Vector2.left);
-                }
-                else
-                {
-                    GetHeavyHit(Vector2.right);
-                }
-            }
 
-
-            // if (collision.CompareTag("Arrow"))
-            // {
-            //     hp -= collision.GetComponentInParent<Arrow>().attackPower;
-            //     AudioHurt();
-            //     if (player.localScale.x < 0)
-            //     {
-            //         GetLightHit(Vector2.right);
-            //     }
-            //     else
-            //     {
-            //         GetLightHit(Vector2.left);
-            //     }
-            // }
-            
-            //�ж���ҹ���
-            if (collision.CompareTag("Weapon")&&!isDefense)
-            {
-                FloatPoint(playerController.attackCalculation);
-
-                hp -= playerController.attackCalculation;
-                AudioHurt();
-                isCloseHurt = true;
-                if (player.localScale.x < 0)
-                {
-                    if (playerController.isHeavyAttack)
-                    {
-                        //�����֡
-                        playerController.IsShake();
-                        //  AttackSense.Instance.HitPause(heavyPause);
-
-                        GetHeavyHit(Vector2.right);
-                    }
-                    else
-                    {
-                        GetLightHit(Vector2.right);
-                    }
-                }
-                if (player.localScale.x > 0)
-                {
-
-                    if (playerController.isHeavyAttack)
-                    {
-                        //�����֡
-                        playerController.IsShake();
-                        // AttackSense.Instance.HitPause(heavyPause);
-
-                        GetHeavyHit(Vector2.left);
-                    }
-                    else
-                    {
-                        GetLightHit(Vector2.left);
-                    }
-                }
-
-            }
-            if (collision.CompareTag("Weapon") && isDefense)
-            {
-                DefenseAttack = true;
-            }
-        }
-    }
     private void Money(int num)
     {
         for(int i = 1; i <= num; i++)
@@ -545,8 +448,6 @@ public class Enemy : MonoBehaviour
             Instantiate(moneyInWorld,transform.position,transform.rotation);
         }
     }
-
-
     private void Dissolve()
     {
 
@@ -562,6 +463,7 @@ public class Enemy : MonoBehaviour
             material.SetFloat("_Fade",fade);
         }
     }
-    
+
+
 }
     

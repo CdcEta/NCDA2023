@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
             {
                 instance = FindObjectOfType<PlayerController>();
             }
+            else
+            {
+                Debug.Log("未找到玩家实例");
+            }
             return instance;
         }
     }
@@ -39,17 +43,27 @@ public class PlayerController : MonoBehaviour
     
     [Header("Inventory")]
     public Inventory playerInventory;
-
-    [Header("Attack")]
+    [SerializeField] private bool GetSword;
+    [SerializeField] private bool GetAxe;
     public int id;
     public int comboStep;
     public float interval = 2f;
     private float timer;
-    public bool isAttack;
+  
     public float lightspeed;
     public float playerHurt;
     public float attackCalculation;
-    public bool isHeavyAttack;
+ 
+
+    [Header("Attack")]
+    [SerializeField]private int attackType;
+    public bool isAttack;
+    public float shakeTime;
+    public float lightPause;
+    public float lightStrength;
+    public float heavyPause;
+    public float heavyStrength;
+    
 
     [Header("Dash")]
     [SerializeField] private float dashingPower = 20f;
@@ -125,21 +139,17 @@ public class PlayerController : MonoBehaviour
 
     [Header("��Ļ����")]
     public Cinemachine.CinemachineImpulseSource MyInpulse;
-
+    
     [Header("UI")]
     public GameObject floatPoint;
     public Image hpBar;
     public Text hpText;
     public GameObject moneyPoint;
     private int state;
+    
     [Header("����")]
     public static Vector3 respawnPoint;
-
-
-
     [Header("DrinkDrug")]
-
-
     public static int DrinkCount=3;
     private bool isDrinking;
     [Header("Recovery")]
@@ -249,21 +259,17 @@ public class PlayerController : MonoBehaviour
         {
             runTimer = 0;
             anim.SetFloat("Running", 0);
-
         }
 
         if (isRun && anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerRun") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerHeavyHurt"))
         {
-
             ////SoundManager.instance.Run();
         }
         else
         {
            // //SoundManager.instance.RunStop();
         }
-
-
-
+        
         if (runTimer >= runTime && isRun)
         {
             anim.SetBool("RunOver", true);
@@ -304,8 +310,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-
+    
     private void Roll()
     {
        
@@ -327,20 +332,17 @@ public class PlayerController : MonoBehaviour
     }
     private void Jump()
     {
-
         if (rb.velocity.y < -10)
         {
 
             anim.SetBool("Falling", true);
             anim.SetBool("Jumping", false);
         }
-
         if (rb.velocity.y >= -10 && rb.velocity.y <= 0)
         {
             anim.SetBool("Falling", false);
             anim.SetBool("Jumping", false);
         }
-
         if (rb.velocity.y > 0)
         {
 
@@ -359,12 +361,7 @@ public class PlayerController : MonoBehaviour
             JumpCount -= 1;
             //SoundManager.instance.Jump();
         }
-
-
-
         anim.SetBool("GetUp", false);
-
-
         if (isGround)
         {
             JumpCount = 1;
@@ -470,6 +467,29 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("EnemyBox"))
+        {
+            Debug.Log("已攻击到敌人");
+            if (attackType == 1)
+            {
+                AttackSense.Instance.HitPause(lightPause);
+                AttackSense.Instance.CameraShake(shakeTime,lightStrength);
+            }
+            else if (attackType == 2)
+            {
+                AttackSense.Instance.HitPause(heavyPause);
+                AttackSense.Instance.CameraShake(shakeTime,heavyStrength);
+            }
+
+            if (transform.localScale.x > 0)
+            {
+                collision.GetComponentInParent<Enemy>().GetHit(Vector2.left, attackType);
+            }
+            else if (transform.localScale.x < 0)
+            {
+                collision.GetComponentInParent<Enemy>().GetHit(Vector2.right, attackType);
+            }
+        }
         if (collision.CompareTag("Corner") && !isRoll&&this.transform.localScale.x * collision.transform.localScale.x < 0 && !anim.GetBool("DownAttacking") && !isAttack)
         {
 
@@ -480,21 +500,17 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 0;
             //  Invoke("CornerMove", 0.45f);
         }
-
         if (collision.CompareTag("EnemyArrow"))
         {
             GetLightHit(collision.transform.parent.localScale.x, collision.GetComponentInParent<EnemyArrow>().attackPower);
         }
-        
-        //�жϹ������
         if (collision.CompareTag("EnemyTrigger"))
         {
-            
             if (!collision.GetComponentInParent<Enemy>().isHeavyAttack)
             {
-
+                
                 GetLightHit(collision.transform.parent.localScale.x, collision.GetComponentInParent<Enemy>().attackCalculation);
-
+                
             }
             else
             {
@@ -513,58 +529,47 @@ public class PlayerController : MonoBehaviour
                 //SoundManager.instance.Hurt();
             }
         }
-
     }
-    
-
     public void AttackHorizentalMove(float attackMoveHorizentalSpeed)
     {
         rb.velocity = new Vector2(-transform.localScale.x * attackMoveHorizentalSpeed, rb.velocity.y);
-    }//����ˮƽ�ƶ�
+    }
     public void AttackVerticalMove(float attackMoveVerticalSpeed)
     {
         rb.velocity = new Vector2(rb.velocity.x, attackMoveVerticalSpeed);
-    }//������ֱ�ƶ�
+    }
     private void WeaponSwitch()
     {
         anim.SetInteger("AttackID", id);
         switch (id)
         {
             case 1:
-                Attack_001();
-                break;
-            case 2:
-                Attack_002();
-                break;
-            case 3:
-                Attack_003();
-                break;
-
-            case 5:
-                Attack_005();
+                SwordControl();
                 break;
 
             case 7:
-                Attack_007();//003=007
+                SwordControl();
                 break;
 
         }
     }
-    private void Attack_001()
+    private void SwordControl()
     {
 
         if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isOnCorner)
         {
+
             isAttack = true;
             comboStep++;
             rb.gravityScale = 0;
             rb.velocity = Vector2.zero;
+            AttackHorizentalMove(50);
             if (comboStep > 3)
                 comboStep = 1;
-
             if (comboStep != 3)
             {
-                isHeavyAttack = false;
+
+                attackType = 1;
                 if (comboStep == 1)
                 {
                     AttackCalculation(1);
@@ -573,15 +578,12 @@ public class PlayerController : MonoBehaviour
                 {
                     AttackCalculation(2);
                 }
-
                 //SoundManager.instance.Sword01();
-
             }
             else
             {
-                isHeavyAttack = true;
+                attackType = 2;
                 AttackCalculation(3);
-
                 //SoundManager.instance.Sword02();
             }
 
@@ -608,24 +610,10 @@ public class PlayerController : MonoBehaviour
     //     thisArrow.GetComponent<SpriteRenderer>().sprite = playerInventory.itemList[0].ArrowImage;
     //     thisArrow.GetComponent<Arrow>().attackPower = playerInventory.itemList[0].WeaponAttackPower[level - 1] * playerInventory.itemList[0].magnification[0];
     // }
-    private void Attack_002()
+    private void AxeControl()
     {
-
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack  && !isOnCorner)
-        {
-
-            //SoundManager.instance.Shoot();
-            rb.velocity = Vector2.zero;
-            isAttack = true;
-            rb.gravityScale = 0;
-            rb.velocity = Vector2.zero;
-            anim.SetTrigger("Attacking");
-        }
-    }
-    private void Attack_003()
-    {
-
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack  && !isOnCorner)
+        
+        if (Input.GetMouseButtonDown(0) && !isRoll  && !isAttack&& !isOnCorner)
         {
             isAttack = true;
             comboStep++;
@@ -648,113 +636,13 @@ public class PlayerController : MonoBehaviour
                 comboStep = 1;
             if (comboStep == 1)
             {
-                isHeavyAttack = false;
+                attackType = 1;
                 AttackCalculation(1);
                 //SoundManager.instance.Axe01();
             }
             else
             {
-                isHeavyAttack = true;
-                AttackCalculation(2);
-                //SoundManager.instance.Axe01();
-            }
-            timer = interval;
-            anim.SetTrigger("Attacking");
-            anim.SetInteger("ComboStep", comboStep);
-        }
-
-        /*     timer -= Time.deltaTime;
-             if (timer <= 0)
-             {
-                 timer = interval;
-                 comboStep = 0;
-             }*/
-    }
-    private void Attack_005()
-    {
-
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isOnCorner)
-        {
-            isHeavyAttack = false;
-            isAttack = true;
-            comboStep++;
-            rb.gravityScale = 0;
-            rb.velocity = Vector2.zero;
-            if (comboStep > 3)
-                comboStep = 1;
-
-            if (comboStep != 3)
-            {
-
-                if (comboStep == 1)
-                {
-                    AttackCalculation(1);
-                }
-                else
-                {
-                    AttackCalculation(2);
-                }
-                rb.velocity = new Vector2(-transform.localScale.x * lightspeed, rb.velocity.y);
-                //SoundManager.instance.Sword01();
-
-            }
-            else
-            {
-
-                AttackCalculation(3);
-                rb.velocity = new Vector2(-transform.localScale.x * lightspeed * 2f, rb.velocity.y);
-                //SoundManager.instance.Sword02();
-            }
-
-
-
-            timer = interval;
-            timer = interval;
-            anim.SetTrigger("Attacking");
-            anim.SetInteger("ComboStep", comboStep);
-        }
-
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            timer = interval;
-            comboStep = 0;
-        }
-    }
-   
-    private void Attack_007()
-    {
-
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack&& !isOnCorner)
-        {
-            isAttack = true;
-            comboStep++;
-            rb.gravityScale = 0;
-            rb.velocity = Vector2.zero;
-            /*         if (comboStep != 2)
-                     {
-                         rb.velocity = new Vector2(-transform.localScale.x * lightspeed, rb.velocity.y);
-                         //SoundManager.instance.Sword01();
-
-                     }
-                     else
-                     {
-                         rb.velocity = new Vector2(-transform.localScale.x * lightspeed * 2f, rb.velocity.y);
-                         //SoundManager.instance.Sword02();
-                     }*/
-
-
-            if (comboStep > 2)
-                comboStep = 1;
-            if (comboStep == 1)
-            {
-                isHeavyAttack = false;
-                AttackCalculation(1);
-                //SoundManager.instance.Axe01();
-            }
-            else
-            {
-                isHeavyAttack = true;
+                attackType = 2;
                 AttackCalculation(2);
                 //SoundManager.instance.Axe02();
                 Invoke("ConstantAxe", 0.5f);
@@ -763,7 +651,6 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("Attacking");
             anim.SetInteger("ComboStep", comboStep);
         }
-
         /*     timer -= Time.deltaTime;
              if (timer <= 0)
              {
@@ -774,11 +661,7 @@ public class PlayerController : MonoBehaviour
     private void ConstantShoot()
     {
         //SoundManager.instance.Shoot();
-    }
-    private void ConstantAxe()
-    {
-        //SoundManager.instance.Axe01();
-    }
+    } 
     private void MoneyPoint()
     {
         moneyPoint.SetActive(false);

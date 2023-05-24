@@ -24,6 +24,7 @@ TagManager:
   - GoldenCoin
   - Diary
   - BossChat
+  - EnemyBox
   layers:
   - Default
   - TransparentFX

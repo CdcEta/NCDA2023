@@ -29,6 +29,7 @@ public class Boss01 : Enemy
     private bool isSkill;
     private void Awake()
     {
+
         talkBoss.SetActive(true);
         posi = gameObject.transform.position;
         gameObject.transform.position =talkBoss.transform.position;
@@ -61,7 +62,7 @@ public class Boss01 : Enemy
         Hurt(); 
         bossHPBar.fillAmount = hp / maxHP[level - 1];
 
-        if (playerController.isDead)
+        if (PlayerController.Instance.isDead)
         {
             //   hp = maxHP[level - 1];
             // bossHPBar.fillAmount = hp / maxHP[level - 1];
