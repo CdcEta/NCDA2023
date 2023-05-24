@@ -49,15 +49,25 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EnableExternalAlpha: 0
+<<<<<<< Updated upstream
     - _FogSize: 56.31
     - _FogSize2: 100
+=======
+    - _FogSize: 140
+    - _FogSize2: 30
+>>>>>>> Stashed changes
     m_Colors:
     - Color_1261edbffe584e8cabd4ef555bb7e8c9: {r: 1.0351346, g: 3.5305483, b: 0.90574276, a: 0}
     - Color_c67b0481fe0a402dbf106402191f11a7: {r: 1.0224824, g: 2.4675908, b: 2.6039217, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+<<<<<<< Updated upstream
     - _FogSpeed: {r: 0.08, g: -0.01, b: 0, a: 56.8}
     - _FogSpeed2: {r: 0.02, g: 0, b: 0, a: 0}
+=======
+    - _FogSpeed: {r: 0.03, g: 0, b: 0, a: 0}
+    - _FogSpeed2: {r: -0.03, g: 0, b: 0, a: 0}
+>>>>>>> Stashed changes
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Vector2: {r: 1.3, g: 1, b: 0, a: 0}
+    - _Vector2: {r: 2, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
