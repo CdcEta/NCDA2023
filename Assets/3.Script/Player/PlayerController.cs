@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     [Header("Other")]
     private Rigidbody2D rb;
     public LayerMask Ground;
-
+    public LayerMask Platform;
     [Header("PlayerProperty")]
     public float hp;
     public float maxHP;
@@ -97,9 +97,7 @@ public class PlayerController : MonoBehaviour
     public int JumpCount;
     public float getUpSpeed;
 
-    [Header("Ground")]
-    bool isTouchingFront;
-
+    [Header("Ground")] private bool isPlatform;
     public Transform groundCheck;
     public float checkRadiu;
     public Transform frontCheck;
@@ -131,7 +129,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isSpeedLimit;
 
-    [Header("Hurt")]
+    [Header("Hurt")] private bool isBack;
     public float lightHurtSpeed;
     public float heavyHurtSpeed;
     public bool isDead;
@@ -147,7 +145,9 @@ public class PlayerController : MonoBehaviour
     public GameObject moneyPoint;
     private int state;
 
-    [Header("����")] public Vector3 respawn;
+    [Header("Transport")] public Vector3 backPoint;
+    private float backTimer;
+    public float backCountTime=10f;
     public static Vector3 respawnPoint;
     [Header("DrinkDrug")]
     public static int DrinkCount=3;
@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
     private float fade = 1f;
     void Start()
     {
-        respawnPoint = respawn;
+        respawnPoint = backPoint;
         material = GetComponent<SpriteRenderer>().material;
         // playerInventory.itemList[0] = default;
         MyInpulse = GetComponent<Cinemachine.CinemachineImpulseSource>();
@@ -179,25 +179,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        BackPlaceUpdate(backCountTime);
         FindBound();
         animatorMoveOverrideController = new AnimatorOverrideController(anim.runtimeAnimatorController);
         anim.runtimeAnimatorController = animatorMoveOverrideController;
 
-        isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadiu, Ground);
+        isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadiu, Ground |Platform);
+        isPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadiu, Platform);
         //  isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadiu,Platform ) ;
-        isTouchingFront = (Physics2D.OverlapCircle(frontCheck.position, checkRadiu, Ground));
+     //   isTouchingFront = (Physics2D.OverlapCircle(frontCheck.position, checkRadiu, Ground));
         IsRun();
         WeaponSwitch();
         Jump();
         Roll();
         DownAttack();
         HPControl();
-        Drink();
+        Drink();    
         RecoveryCount.text = DrinkCount.ToString();
         
 
     }
-
+    
+    
     public void FindBound()
     {
         if(GameObject.Find("Bound"))
@@ -205,7 +208,6 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-
         Movement();
     }
     public void IsShake()
@@ -335,8 +337,7 @@ public class PlayerController : MonoBehaviour
         
         if (isRoll&&!isOnCorner)
         {
-            if(!isTouchingFront)
-                rb.velocity = new Vector2(-transform.localScale.x * dashingPower, 0f);
+            rb.velocity = new Vector2(-transform.localScale.x * dashingPower, 0f);
         }
     }
     private void Jump()
@@ -410,7 +411,6 @@ public class PlayerController : MonoBehaviour
     }
     private void GetHeavyHit(float hurtDirection, float hurtCalculation)
     {
-
         //isLghtHurt = true;
         //this.hurtDirection = hurtDirection;
         if (!isRoll && !anim.GetBool("DownAttacking") && !isDead)
@@ -455,10 +455,29 @@ public class PlayerController : MonoBehaviour
     public void Respawn()
     {
         anim.SetBool("Die", false);
-        isDead = false;
-        hp = maxHP;
-        transform.position = respawnPoint;
-        DrinkCount = 3;
+        if (isDead)
+        {
+            hp = maxHP;
+            transform.position = respawnPoint;
+            isDead = false;
+        }
+
+        if (isBack)
+        {
+            hp -= 1;
+            transform.position = backPoint;
+            isBack = false; 
+        }
+    }
+
+    private void BackPlaceUpdate(float backCountTime)
+    {
+        backTimer += Time.deltaTime;
+        if (backTimer > backCountTime&& isGround&&!isPlatform)
+        {
+            backPoint = transform.position;
+            backTimer = 0;
+        }
     }
     private void AttackCalculation(int stage)
     {
@@ -477,7 +496,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Rebirth());
             anim.SetTrigger("Die");
-            isDead = true;
+            isBack = true;
         }
         if (collision.CompareTag("EnemyBox"))
         {
@@ -699,7 +718,6 @@ public class PlayerController : MonoBehaviour
             material.SetFloat("_Fade", fade);
             yield return null;
         }
-
         yield return new WaitForSeconds(1f);
         while (fade<1f)
         {
@@ -707,8 +725,5 @@ public class PlayerController : MonoBehaviour
             material.SetFloat("_Fade", fade);
             yield return null;
         }
-
     }
-
-
 }
