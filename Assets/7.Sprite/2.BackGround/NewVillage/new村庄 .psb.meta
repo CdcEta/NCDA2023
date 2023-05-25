@@ -115,8 +115,8 @@ ScriptedImporter:
     uvTransform: {x: 10191, y: 5159}
   - name: "\u6865\uFF08\u865A\u4F53"
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0.8}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2

@@ -211,8 +211,8 @@ public class Enemy : MonoBehaviour
             anim.SetBool("Die", true);
             isDissolving = true;
             isDead = true;
-            Money(deadMoneyNum);
-            isLeaveMoney = true;
+          //  Money(deadMoneyNum);
+         //   isLeaveMoney = true;
             playerController.isSpeedLimit = true;
         }
     }

@@ -23,6 +23,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 0a2ab0054c6e7a24fb6d3afa12de0063, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Emission:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -46,11 +50,12 @@ Material:
     m_Floats:
     - Vector1_a821e34d119e46149f62374c4e740389: 0.5
     - Vector1_e2493270d4914786b14f4551a64a6290: 0.318
-    - _Damaged: 0.5
+    - _Damaged: 0
     - _Fade: 1
     m_Colors:
     - Color_25a9867f4dfc4907a7b301c3abdfbd71: {r: 1, g: 1, b: 1, a: 0}
     - Color_97abb3feb5254b9799e9f91996e0549a: {r: 0.4198113, g: 1, b: 0.50425196, a: 0}
-    - _Color: {r: 0.019819975, g: 1, b: 0, a: 0}
-    - _DamagedColor: {r: 0.20271148, g: 0.9234634, b: 0.20271148, a: 0}
+    - Color_996c656210b144c688d2a384b9173f4c: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.025316477, g: 1, b: 0, a: 0}
+    - _DamagedColor: {r: 0.033018887, g: 1, b: 0.033018887, a: 0}
   m_BuildTextureStacks: []

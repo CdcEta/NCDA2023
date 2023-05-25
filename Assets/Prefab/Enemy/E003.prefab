@@ -348,8 +348,8 @@ MonoBehaviour:
   heavyPause: 0
   heavyStrength: 0
   isDefense: 0
-  NormalIntensity: 0.5
-  flashIntensity: 100
+  NormalIntensity: 0.1
+  flashIntensity: 2
   flashTime: 0.2
   playerController: {fileID: 0}
 --- !u!61 &438750301122997984

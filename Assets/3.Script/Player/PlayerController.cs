@@ -146,8 +146,8 @@ public class PlayerController : MonoBehaviour
     public Text hpText;
     public GameObject moneyPoint;
     private int state;
-    
-    [Header("����")]
+
+    [Header("����")] public Vector3 respawn;
     public static Vector3 respawnPoint;
     [Header("DrinkDrug")]
     public static int DrinkCount=3;
@@ -156,10 +156,19 @@ public class PlayerController : MonoBehaviour
     public Text RecoveryCount;
 
     public GameObject[] stage;
-
+    
+    
+    [Header("Material")] 
+    public float NormalIntensity = 0.5f;
+    public float flashIntensity = 100f;
+    public float flashTime = 0.5f;
+    private Material material;
+    private bool isDissolving = false;
+    private float fade = 1f;
     void Start()
     {
-        
+        respawnPoint = respawn;
+        material = GetComponent<SpriteRenderer>().material;
         // playerInventory.itemList[0] = default;
         MyInpulse = GetComponent<Cinemachine.CinemachineImpulseSource>();
         rb = GetComponent<Rigidbody2D>();
@@ -170,7 +179,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
         FindBound();
         animatorMoveOverrideController = new AnimatorOverrideController(anim.runtimeAnimatorController);
         anim.runtimeAnimatorController = animatorMoveOverrideController;
@@ -197,6 +205,7 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
+
         Movement();
     }
     public void IsShake()
@@ -436,6 +445,7 @@ public class PlayerController : MonoBehaviour
         hp = Mathf.Clamp(hp, 0, maxHP);
         if (hp == 0)
         {
+
             anim.SetTrigger("Die");
             isDead = true;
         }
@@ -444,13 +454,9 @@ public class PlayerController : MonoBehaviour
     }
     public void Respawn()
     {
-        
         anim.SetBool("Die", false);
         isDead = false;
         hp = maxHP;
-
-
-
         transform.position = respawnPoint;
         DrinkCount = 3;
     }
@@ -467,6 +473,12 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("DeathTrap"))
+        {
+            StartCoroutine(Rebirth());
+            anim.SetTrigger("Die");
+            isDead = true;
+        }
         if (collision.CompareTag("EnemyBox"))
         {
             Debug.Log("已攻击到敌人");
@@ -540,26 +552,34 @@ public class PlayerController : MonoBehaviour
     }
     private void WeaponSwitch()
     {
-        anim.SetInteger("AttackID", id);
-        switch (id)
+        if ( !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") &&
+            !isAttack && !isOnCorner)
         {
-            case 1:
+            if (Input.GetMouseButtonDown(0))
+            {
+                id = 1;
+                anim.SetInteger("AttackID", id);
                 SwordControl();
-                break;
-
-            case 7:
-                SwordControl();
-                break;
-
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                id = 7;
+                anim.SetInteger("AttackID", id);
+                AxeControl();
+            }  
+            
+        }
+        
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            timer = interval;
+            comboStep = 0;
         }
     }
     private void SwordControl()
     {
-
-        if (Input.GetMouseButtonDown(0) && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !isAttack && !isOnCorner)
-        {
-
-            isAttack = true;
+        isAttack = true;
             comboStep++;
             rb.gravityScale = 0;
             rb.velocity = Vector2.zero;
@@ -586,20 +606,10 @@ public class PlayerController : MonoBehaviour
                 AttackCalculation(3);
                 //SoundManager.instance.Sword02();
             }
-
-
-
             timer = interval;
             anim.SetTrigger("Attacking");
             anim.SetInteger("ComboStep", comboStep);
-        }
-
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            timer = interval;
-            comboStep = 0;
-        }
+        
 
     }
     // public void InstantiateArrow(float addY)
@@ -612,9 +622,7 @@ public class PlayerController : MonoBehaviour
     // }
     private void AxeControl()
     {
-        
-        if (Input.GetMouseButtonDown(0) && !isRoll  && !isAttack&& !isOnCorner)
-        {
+
             isAttack = true;
             comboStep++;
             rb.gravityScale = 0;
@@ -638,6 +646,7 @@ public class PlayerController : MonoBehaviour
             {
                 attackType = 1;
                 AttackCalculation(1);
+                AttackHorizentalMove(50);
                 //SoundManager.instance.Axe01();
             }
             else
@@ -645,18 +654,11 @@ public class PlayerController : MonoBehaviour
                 attackType = 2;
                 AttackCalculation(2);
                 //SoundManager.instance.Axe02();
-                Invoke("ConstantAxe", 0.5f);
             }
             timer = interval;
             anim.SetTrigger("Attacking");
             anim.SetInteger("ComboStep", comboStep);
-        }
-        /*     timer -= Time.deltaTime;
-             if (timer <= 0)
-             {
-                 timer = interval;
-                 comboStep = 0;
-             }*/
+
     }
     private void ConstantShoot()
     {
@@ -686,4 +688,27 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Drinking",false);
         isDrinking = false;
     }
+    
+
+
+    private IEnumerator Rebirth()
+    {
+        while (fade > 0f)
+        {
+            fade -= Time.deltaTime;
+            material.SetFloat("_Fade", fade);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
+        while (fade<1f)
+        {
+            fade += Time.deltaTime;
+            material.SetFloat("_Fade", fade);
+            yield return null;
+        }
+
+    }
+
+
 }

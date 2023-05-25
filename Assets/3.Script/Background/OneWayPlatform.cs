@@ -42,7 +42,7 @@ public class OneWayPlatform : MonoBehaviour
 
     IEnumerator Exit()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         platform.rotationalOffset = 0;
     }
