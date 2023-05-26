@@ -146,8 +146,9 @@ public class PlayerController : MonoBehaviour
     private int state;
 
     [Header("Transport")] public Vector3 backPoint;
+    private float backDirection;
     private float backTimer;
-    public float backCountTime=10f;
+    public float backCountTime=15f;
     public static Vector3 respawnPoint;
     [Header("DrinkDrug")]
     public static int DrinkCount=3;
@@ -246,8 +247,9 @@ public class PlayerController : MonoBehaviour
         float facedirection = Input.GetAxisRaw("Horizontal");
         //��ɫ�ƶ�
         floatPoint.transform.localScale = new Vector3(gameObject.transform.localScale.x,1,1);
-        if (!isDrinking&&!isDead && !isDefense && !isAttack && !isGetUp && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerHeavyHurt") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !anim.GetBool("DownAttacking") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDownAttackGetUp") && !isOnCorner)
+        if (!isDrinking&&!isDead&&!isBack && !isAttack && !isGetUp && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerHeavyHurt") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !anim.GetBool("DownAttacking") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDownAttackGetUp") && !isOnCorner)
         {
+       
             anim.SetFloat("Running", Mathf.Abs(facedirection));
             runTimer += Time.deltaTime;
             if (isGround&&facedirection!=0)
@@ -291,7 +293,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //��ɫ����
-        if (!isOnCorner && facedirection != 0 && !isAttack)
+        if (!isOnCorner && facedirection != 0 && !isAttack&&!isDead&&!isBack && !isGetUp && !isRoll)
         {
             transform.localScale = new Vector3(facedirection * -1, 1, 1);
         }
@@ -326,7 +328,7 @@ public class PlayerController : MonoBehaviour
     {
        
         rollTimer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.LeftShift) && rollTimer > dashCoolingTime&&!isAttack&&!isOnCorner)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && rollTimer > dashCoolingTime&&!isAttack&&!isOnCorner&&!isDead&&!isBack)
         {
             isRoll = true;
             rb.gravityScale = 0;
@@ -335,7 +337,7 @@ public class PlayerController : MonoBehaviour
             rollTimer = 0;
         }
         
-        if (isRoll&&!isOnCorner)
+        if (isRoll&&!isOnCorner&&!isDead&&!isBack)
         {
             rb.velocity = new Vector2(-transform.localScale.x * dashingPower, 0f);
         }
@@ -359,7 +361,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Jumping", true);
             anim.SetBool("Falling", false);
         }
-        if (Input.GetButtonDown("Jump") && isGround && !isAttack && !isRoll && !isOnCorner && !isDead && !isGetUp)
+        if (Input.GetButtonDown("Jump") && isGround && !isAttack && !isRoll && !isOnCorner && !isDead&&!isBack && !isGetUp)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
             //SoundManager.instance.Jump();
@@ -413,7 +415,7 @@ public class PlayerController : MonoBehaviour
     {
         //isLghtHurt = true;
         //this.hurtDirection = hurtDirection;
-        if (!isRoll && !anim.GetBool("DownAttacking") && !isDead)
+        if (!isRoll && !anim.GetBool("DownAttacking") && !isDead&&!isBack)
         {
             rb.velocity = new Vector3(-hurtDirection * heavyHurtSpeed, 0, 0);
             hp -= hurtCalculation;
@@ -428,7 +430,7 @@ public class PlayerController : MonoBehaviour
     {
         //isLghtHurt = true;
         //this.hurtDirection = hurtDirection;
-        if (!isRoll && !anim.GetBool("DownAttacking") && !isDead)
+        if (!isRoll && !anim.GetBool("DownAttacking") && !isDead&&!isBack)
         {
             rb.velocity = new Vector3(-hurtDirection * lightHurtSpeed, 0, 0);
             hp -= hurtCalculation;
@@ -459,15 +461,19 @@ public class PlayerController : MonoBehaviour
         {
             hp = maxHP;
             transform.position = respawnPoint;
-            isDead = false;
+
+            transform.localScale = new Vector3(-1,1,1);
         }
 
         if (isBack)
         {
             hp -= 1;
             transform.position = backPoint;
-            isBack = false; 
+
+            transform.localScale = new Vector3(backDirection,1,1);
         }
+
+     
     }
 
     private void BackPlaceUpdate(float backCountTime)
@@ -475,6 +481,7 @@ public class PlayerController : MonoBehaviour
         backTimer += Time.deltaTime;
         if (backTimer > backCountTime&& isGround&&!isPlatform)
         {
+            backDirection = transform.localScale.x;
             backPoint = transform.position;
             backTimer = 0;
         }
@@ -551,7 +558,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.CompareTag("Skill"))
         {
-            if (!isRoll && !anim.GetBool("DownAttacking") && !isDead)
+            if (!isRoll && !anim.GetBool("DownAttacking") && !isDead&&!isBack)
             {
                 hp -= 20;
                 anim.SetTrigger("HeavyHurting");
@@ -722,8 +729,12 @@ public class PlayerController : MonoBehaviour
         while (fade<1f)
         {
             fade += Time.deltaTime;
+
             material.SetFloat("_Fade", fade);
             yield return null;
         }
+        isDead = false;
+        isBack = false;
+        yield return null;
     }
 }
