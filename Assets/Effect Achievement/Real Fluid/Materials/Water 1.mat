@@ -99,9 +99,9 @@ Material:
     - Vector2_1215687d497d4e33ac48d71797231df2: {r: 0, g: 0.05, b: 0, a: 0}
     - Vector2_43878b9b645041eb8a305e92349addc1: {r: 0, g: 0, b: 0, a: 0}
     - _DistortVelocity: {r: 0, g: -0.1, b: 0, a: 0}
-    - _FluidColor: {r: 0.003921569, g: 0.036764707, b: 0.0034313726, a: 1}
+    - _FluidColor: {r: 0.007843136, g: 0.047058824, b: 0.010306944, a: 1}
     - _RippleColor: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
     - _RippleSpeed: {r: 0, g: 0.001, b: 0, a: 0}
-    - _SurfaceShineColor: {r: 0, g: 0.08235294, b: 0.16470589, a: 1}
+    - _SurfaceShineColor: {r: 0, g: 0.10999805, b: 0.16470589, a: 1}
     - _Velocity: {r: 0, g: -0.3, b: 0, a: 0}
   m_BuildTextureStacks: []
