@@ -1,5 +1,5 @@
 {
-    "m_SGVersion": 3,
+    "m_SGVersion": 2,
     "m_Type": "UnityEditor.ShaderGraph.GraphData",
     "m_ObjectId": "f6b8f9b27c814f94a6deea77849f8584",
     "m_Properties": [
@@ -20,12 +20,6 @@
         }
     ],
     "m_Keywords": [],
-    "m_Dropdowns": [],
-    "m_CategoryData": [
-        {
-            "m_Id": "3c701b08bea745b2a826649063dfc299"
-        }
-    ],
     "m_Nodes": [
         {
             "m_Id": "96b879f4c30d40db9fe9d58439ea5110"
@@ -291,11 +285,10 @@
         "serializedMesh": {
             "m_SerializedMesh": "{\"mesh\":{\"instanceID\":0}}",
             "m_Guid": ""
-        },
-        "preventRotation": false
+        }
     },
     "m_Path": "Sub Graphs",
-    "m_GraphPrecision": 1,
+    "m_ConcretePrecision": 0,
     "m_PreviewMode": 2,
     "m_OutputNode": {
         "m_Id": "96b879f4c30d40db9fe9d58439ea5110"
@@ -311,13 +304,9 @@
         "m_GuidSerialized": "92b880eb-a3fd-4ae8-9231-8e0092ce1e0a"
     },
     "m_Name": "DistortStrength",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "DistortStrength",
     "m_DefaultReferenceName": "_DistortStrength",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -424,13 +413,9 @@
         "m_GuidSerialized": "75987bdd-ef4f-455b-8af3-c0d036fe115b"
     },
     "m_Name": "DistortVelocity",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "DistortVelocity",
     "m_DefaultReferenceName": "_DistortVelocity",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -764,13 +749,9 @@
         "m_GuidSerialized": "a15598dd-a823-4bb5-9fe2-cf00d835e850"
     },
     "m_Name": "AngleOffset",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "AngleOffset",
     "m_DefaultReferenceName": "_AngleOffset",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1552,13 +1533,9 @@
         "m_GuidSerialized": "9f77154a-c4be-4a80-9fb0-0d1fff236b42"
     },
     "m_Name": "UV",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "UV",
     "m_DefaultReferenceName": "_UV",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
@@ -1853,13 +1830,9 @@
         "m_GuidSerialized": "99617087-0426-4a4a-9d60-3f0c716c41e3"
     },
     "m_Name": "DistortDensity",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "DistortDensity",
     "m_DefaultReferenceName": "_DistortDensity",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
