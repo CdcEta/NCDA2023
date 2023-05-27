@@ -28260,7 +28260,7 @@ Camera:
   far clip plane: 200
   field of view: 60
   orthographic: 1
-  orthographic size: 100
+  orthographic size: 174.80522
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -32466,7 +32466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1005951053
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32512,7 +32512,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -32526,7 +32526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005951052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1334, y: 377, z: 0}
+  m_LocalPosition: {x: 268.5, y: 108, z: 0}
   m_LocalScale: {x: 400, y: 400, z: 1}
   m_Children:
   - {fileID: 719197632}
@@ -39887,7 +39887,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690777199}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -428.42917, y: 10.062847, z: 89.801895}
+  m_LocalPosition: {x: -349.43625, y: 10.16679, z: 89.801895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 512518656}
@@ -46304,7 +46304,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d72f411e9f585af48abfa00c7f61ae80, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -46391,6 +46391,9 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 256
+  Platform:
+    serializedVersion: 2
+    m_Bits: 0
   hp: 200
   maxHP: 200
   moveAnimationClip:
@@ -46450,6 +46453,8 @@ MonoBehaviour:
   hpBar: {fileID: 6251971039829003489}
   hpText: {fileID: 6251971039646223648}
   moneyPoint: {fileID: 0}
+  backPoint: {x: 0, y: 0, z: 0}
+  backCountTime: 15
   RecoveryCount: {fileID: 9147791502155856208}
   stage:
   - {fileID: 0}
@@ -46462,6 +46467,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  NormalIntensity: 0.5
+  flashIntensity: 100
+  flashTime: 0.5
 --- !u!1 &6037396546152203902
 GameObject:
   m_ObjectHideFlags: 0

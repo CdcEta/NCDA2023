@@ -55,6 +55,8 @@ Material:
     - Vector1_2af68da9533b4000a75f7a1810454d86: 0.5
     - _EnableExternalAlpha: 0
     m_Colors:
+    - Color_3af04cb74ffd45c7aed40d8d4195943a: {r: 0, g: 0.011764706, b: 0.0004901961, a: 1}
+    - Color_547519a9a3f542459bb3bb2cb78f9044: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
