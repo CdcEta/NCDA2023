@@ -29,7 +29,7 @@ public class Boss01 : Enemy
     private bool isSkill;
     private void Awake()
     {
-
+        
         talkBoss.SetActive(true);
         posi = gameObject.transform.position;
         gameObject.transform.position =talkBoss.transform.position;
@@ -42,6 +42,7 @@ public class Boss01 : Enemy
     }
     protected override void Start()
     {
+        
         base.Start();
     }
 
@@ -51,7 +52,7 @@ public class Boss01 : Enemy
         if (hp == 0)
         {
             Instantiate(loseBoss,transform.position,transform.rotation);
-            Destroy(parentObject);
+            
         //    playerController.ChooseEnd();
         }
         base.Update();
@@ -62,12 +63,13 @@ public class Boss01 : Enemy
         Hurt(); 
         bossHPBar.fillAmount = hp / maxHP[level - 1];
 
-        if (PlayerController.Instance.isDead)
+        if (playerController.isDead)
         {
             //   hp = maxHP[level - 1];
             // bossHPBar.fillAmount = hp / maxHP[level - 1];
             //talkBoss.SetActive(true);
             Instantiate(parentObject);
+            
             Destroy(parentObject);
 
         }

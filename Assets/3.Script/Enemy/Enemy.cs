@@ -101,7 +101,7 @@ public class Enemy : MonoBehaviour
     private bool isDissolving = false;
 
     private float fade = 1f;
-    [SerializeField]private PlayerController playerController;
+    [SerializeField]protected PlayerController playerController;
     
     
     // Start is called before the first frame update
@@ -408,12 +408,14 @@ public class Enemy : MonoBehaviour
         {
             isLightHurt = true;
             lightHurtEffect.SetActive(true);
+            if(!isBoss)
             anim.SetTrigger("LightHurting");
         }
         else
         {
             isHeavyHurt = true;
             HeavyHurtEffect.SetActive(true);
+            if(!isBoss)
             anim.SetTrigger("HeavyHurting");
             playerController.IsShake();
         }
