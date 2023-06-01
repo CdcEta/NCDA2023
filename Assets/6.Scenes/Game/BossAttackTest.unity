@@ -23414,6 +23414,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 279839145594162536, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2413806693520163455, guid: 20aba107889002a40964b02d2ad678b4, type: 3}
     - target: {fileID: 3199765757729567765, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -23474,13 +23478,53 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 5726752630817233869, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 093f3759ec5437547a703f6c440e483e, type: 2}
     - target: {fileID: 5726752630817233871, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
       propertyPath: hp
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5726752630817233871, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: flashTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726752630817233871, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: defenseTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726752630817233871, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: flashIntensity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726752630817233871, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: NormalIntensity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726752630817233871, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: attack2CoolingTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726752630817233871, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: defenseCoolingTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726752630817233871, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
       propertyPath: maxHP.Array.data[0]
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6067141542576942138, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6067141542576942138, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206040063508139232, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
