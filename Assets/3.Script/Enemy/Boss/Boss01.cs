@@ -58,6 +58,7 @@ public class Boss01 : Enemy
         base.Update();
         Boss01Attack();
         IsFar();
+
         Direction();
         Boss01Attack2();
         Hurt(); 
@@ -79,6 +80,7 @@ public class Boss01 : Enemy
             skillCount++;
         }
     }
+
 
     public void AudioAttack02()
     {
@@ -127,9 +129,9 @@ public class Boss01 : Enemy
                     if (anim.GetBool("Running"))
                     {
                         anim.SetBool("Running", false);
-                        anim.SetBool("Idling", false);
+                        anim.SetBool("Attacking", true);
                     }
-                    anim.SetBool("Attacking", true);
+                  
                     anim.SetInteger("AttackType", 4);
                     defenseTimer = 0;
                     attackMode2 = true;
@@ -140,15 +142,17 @@ public class Boss01 : Enemy
 
     protected void Direction()
     {
-
-        if (transform.position.x < player.position.x)
+        if (anim.GetBool("Attacking")==false)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            if (transform.position.x < player.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
 
-        }
-        else
-        {
-            transform.localScale = new Vector3(1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
         }
     }
 
@@ -158,16 +162,15 @@ public class Boss01 : Enemy
         if (attackMode2 && !isAttack)
         {
             defenseTimer += Time.deltaTime;
-
-
+            
             if (defenseTimer >= defenseCoolingTime)
             {
-                isDefense = true;
                 anim.SetBool("Defensing", true);
                 attack2Timer += Time.deltaTime;
                 rb.velocity = new Vector2(transform.localScale.x * defenseSpeed, rb.velocity.y);
                 if (attack2Timer >= attack2CoolingTime && !DefenseAttack)
                 {
+                    isAttack = true;
                     anim.SetBool("Attacking", true);
                     anim.SetBool("Defensing", false);
                     isDefense = false;
@@ -176,7 +179,7 @@ public class Boss01 : Enemy
                     if (isSkill)
                     {
                         anim.SetInteger("AttackType", 5);
-                        isDefense = false;
+                        isDefense = true;
                         attackMode2 = false;
                         isSkill = false;
                     }
@@ -195,23 +198,10 @@ public class Boss01 : Enemy
                     else if (Mathf.Abs(player.position.x - this.transform.position.x) >= 360)
                     {
                         anim.SetInteger("AttackType", 5);
-                        isDefense = false;
+                        isDefense = true;
                         attackMode2 = false;
                     }
                 }
-                else if (DefenseAttack)
-                {
-                    anim.SetBool("Attacking", true);
-                    anim.SetBool("Defensing", false);
-                    isDefense = false;
-                    defenseTimer = 0;
-                    attack2Timer = 0;
-                    anim.SetInteger("AttackType", 2);
-                    DefenseAttack = false;
-                    attackMode2 = false;
-
-                }
-              //  anim.SetInteger("AttackType", 3);
             }
 
         }

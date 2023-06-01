@@ -367,9 +367,11 @@ public class Enemy : MonoBehaviour
     }//��ֹ�����ã������¼�
     public void AttackOver()
     {
-        anim.SetBool("Attacking", false);
+        anim.SetBool("Attacking", false); 
+        anim.SetBool("Idling", true);
         rb.velocity = Vector2.zero;
         attackTimer = 0;
+        isAttack = false;
     }//�����¼������������¼�
     protected void Hurt()
     {
@@ -390,6 +392,7 @@ public class Enemy : MonoBehaviour
     }
 
     private IEnumerator HurtFlash()
+    
     {
         material.SetFloat("_Damaged", flashIntensity);
         yield return new WaitForSeconds(flashTime);
