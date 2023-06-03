@@ -291,11 +291,14 @@ public class PlayerController : MonoBehaviour
         rollTimer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) && rollTimer > dashCoolingTime&&!isAttack&&!isOnCorner&&!isDead&&!isBack)
         {
+            isDrinking = false;
+            anim.SetBool("Drinking",false);
             isRoll = true;
             rb.gravityScale = 0;
             anim.SetTrigger("Rolling");
             //SoundManager.instance.Roll();
             rollTimer = 0;
+       
         }
         
         if (isRoll&&!isOnCorner&&!isDead&&!isBack)
@@ -378,12 +381,15 @@ public class PlayerController : MonoBehaviour
         //this.hurtDirection = hurtDirection;
         if (!isRoll && !anim.GetBool("DownAttacking") && !isDead&&!isBack)
         {
+            isDrinking = false;
+            anim.SetBool("Drinking",false);
             rb.velocity = new Vector3(-hurtDirection * heavyHurtSpeed, 0, 0);
             hp -= 1;
             StartCoroutine(HPDisappear(hpUI.transform.GetChild(hp).GetComponent<Image>()));
             anim.SetTrigger("HeavyHurting");
             AttackOver();
             RedShine.SetTrigger("Shining");
+       
             //SoundManager.instance.Hurt();
         }
     }
@@ -673,10 +679,12 @@ public class PlayerController : MonoBehaviour
     }
     private void EndDrink()
     {
-        hp += 1;
-        StartCoroutine(HPAppear(hpUI.transform.GetChild(hp-1).GetComponent<Image>()));
-        anim.SetBool("Drinking",false);
-        isDrinking = false;
+        if(isDrinking) {
+            hp += 1;
+            StartCoroutine(HPAppear(hpUI.transform.GetChild(hp-1).GetComponent<Image>()));
+            anim.SetBool("Drinking",false);
+            isDrinking = false;
+        }
     }
     private IEnumerator Rebirth()
     {
