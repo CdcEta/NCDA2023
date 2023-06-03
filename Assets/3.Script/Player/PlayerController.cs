@@ -287,12 +287,9 @@ public class PlayerController : MonoBehaviour
     }
     private void Roll()
     {
-       
         rollTimer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.LeftShift) && rollTimer > dashCoolingTime&&!isAttack&&!isOnCorner&&!isDead&&!isBack)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDrinking && rollTimer > dashCoolingTime&&!isAttack&&!isOnCorner&&!isDead&&!isBack)
         {
-            isDrinking = false;
-            anim.SetBool("Drinking",false);
             isRoll = true;
             rb.gravityScale = 0;
             anim.SetTrigger("Rolling");
@@ -383,6 +380,7 @@ public class PlayerController : MonoBehaviour
         {
             isDrinking = false;
             anim.SetBool("Drinking",false);
+            rb.velocity = Vector2.zero;
             rb.velocity = new Vector3(-hurtDirection * heavyHurtSpeed, 0, 0);
             hp -= 1;
             StartCoroutine(HPDisappear(hpUI.transform.GetChild(hp).GetComponent<Image>()));
@@ -435,6 +433,7 @@ public class PlayerController : MonoBehaviour
     }
     private IEnumerator HPAppear(Image t)
     {
+        t.color -= new Color(0, 0, 0, 1);
         while (t.color.a < 1)
         {
             t.color += new Color(0, 0, 0, Time.deltaTime);
@@ -443,6 +442,7 @@ public class PlayerController : MonoBehaviour
     }
     private IEnumerator HPDisappear(Image t)
     {
+        t.color += new Color(0, 0, 0, 1);
         while (t.color.a > 0)
         {
             t.color -= new Color(0, 0, 0, Time.deltaTime);
