@@ -16,7 +16,6 @@ public class Enemy : MonoBehaviour
     public float hp;
     public float[] maxHP;
     public float[] attackPower;
-    public float[] defense;
     public bool isBoss;
 
     [Header("Patrol")]
@@ -53,10 +52,6 @@ public class Enemy : MonoBehaviour
     private AnimatorStateInfo info;
     private Vector2 hurtDirection;  
     private bool isDead;
-    private bool isLeaveMoney;
-    public GameObject moneyInWorld;
-    public int deadMoneyNum;
-    public int deadMoneyValue;
     public GameObject hurtArtical;
     private float hurtTimer;
     private float hurtTime=0.2f;
@@ -69,7 +64,6 @@ public class Enemy : MonoBehaviour
     public Transform groundCheck;
     public Transform frontCheck;
     public LayerMask Ground;
-
     [Header("RunToPlayer")]
     
     public float closeDistance;
@@ -82,15 +76,11 @@ public class Enemy : MonoBehaviour
     public AudioClip[] ememySound;
     [Header("�����")]
     public float shakeTime;
-
     public int heavyPause;
-
     public float heavyStrength;
-
     [Header("Defense")]
     public bool isDefense;
     protected bool DefenseAttack;
-
 
     [Header("Material")] 
     public float NormalIntensity = 0.5f;
@@ -103,16 +93,10 @@ public class Enemy : MonoBehaviour
     private float fade = 1f;
     [SerializeField]protected PlayerController playerController;
     
-    
-    // Start is called before the first frame update
-    
-
-
     protected virtual void  Start()
     {
         playerController = FindObjectOfType<PlayerController>();;
         material = GetComponent<SpriteRenderer>().material;
-        moneyInWorld.GetComponent<GoldenCoin>().value = deadMoneyValue;
         layerMask = (1 << 7) | (1 << 8);
         layerMask = ~layerMask;
         player = playerController.transform;
@@ -197,7 +181,6 @@ public class Enemy : MonoBehaviour
         audioSource.clip = ememySound[0];
         audioSource.Play();
     }
-
     public void AudioAttack01()
     {
         audioSource.clip = ememySound[1];
@@ -206,7 +189,7 @@ public class Enemy : MonoBehaviour
     private void HPControl()
     {
         hp = Mathf.Clamp(hp, 0, maxHP[level - 1]);
-        if (hp == 0&&!isLeaveMoney)
+        if (hp == 0)
         {
             anim.SetBool("Die", true);
             isDissolving = true;
@@ -390,9 +373,7 @@ public class Enemy : MonoBehaviour
                 isHeavyHurt = false;
         }
     }
-
     private IEnumerator HurtFlash()
-    
     {
         material.SetFloat("_Damaged", flashIntensity);
         yield return new WaitForSeconds(flashTime);
@@ -427,13 +408,6 @@ public class Enemy : MonoBehaviour
             isLightHurt = true;
             this.hurtDirection = hurtDirection;
     }
-
-    public void AttackCalculation(float magnification)
-    {
-       
-        attackCalculation = attackPower[level-1] * magnification;
-       
-    }
     public void IsAttack(int thisAttack)
     {
         if(thisAttack>0)
@@ -445,14 +419,7 @@ public class Enemy : MonoBehaviour
             isAttack = false;
         }
     }
-
-    private void Money(int num)
-    {
-        for(int i = 1; i <= num; i++)
-        {
-            Instantiate(moneyInWorld,transform.position,transform.rotation);
-        }
-    }
+    
     private void Dissolve()
     {
 

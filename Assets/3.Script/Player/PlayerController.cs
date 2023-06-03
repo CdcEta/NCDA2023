@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 {
     //单例模式
     private static PlayerController instance;
-
     public static PlayerController Instance
     {
         get
@@ -25,36 +24,32 @@ public class PlayerController : MonoBehaviour
             return instance;
         }
     }
-
-    
     public GameObject cinemaCollider;
-    
     [Header("Other")]
     private Rigidbody2D rb;
     public LayerMask Ground;
     public LayerMask Platform;
-    [Header("PlayerProperty")]
-    public float hp;
-    public float maxHP;
+    [Header("PlayerProperty")] public PlayerProperty playerProperty;
+    [SerializeField] private bool GetSword;
+    [SerializeField] private bool GetAxe;
+    [SerializeField]private int hp;
+    [SerializeField]private int maxHP;
+    private float energy;
+    private float maxEnergy;
+    private float cureEnergy;
     [Header("Animator")]
     private Animator anim;
     public AnimationClip[] moveAnimationClip;
     public AnimatorOverrideController animatorMoveOverrideController;
-    
     [Header("Inventory")]
     public Inventory playerInventory;
-    [SerializeField] private bool GetSword;
-    [SerializeField] private bool GetAxe;
     public int id;
     public int comboStep;
     public float interval = 2f;
     private float timer;
-  
     public float lightspeed;
     public float playerHurt;
     public float attackCalculation;
- 
-
     [Header("Attack")]
     [SerializeField]private int attackType;
     public bool isAttack;
@@ -63,20 +58,13 @@ public class PlayerController : MonoBehaviour
     public float lightStrength;
     public float heavyPause;
     public float heavyStrength;
-    
-
     [Header("Dash")]
     [SerializeField] private float dashingPower = 20f;
     [SerializeField]private float dashingTime = 0.2f;
     [SerializeField] private float dashCoolingTime = 2f;
     private bool canDash = true;
     private bool isDashing;
-
-    
-    
-    
     [Header("Move")]
-
     public float runSpeed;
     public float walkSpeed;
     public float runTime;
@@ -85,27 +73,19 @@ public class PlayerController : MonoBehaviour
     private bool isRun;
     float horizontalmove;
     private bool isGetUp, isRoll, isGround;
-
-
     public float airSpeed;
     public float maxfalltime = 1f;
     private float rollTimer;
     private Vector3 targetPosition;
-
     [Header("Jump")]
     public float jumpforce;
     public int JumpCount;
     public float getUpSpeed;
-
     [Header("Ground")] private bool isPlatform;
     public Transform groundCheck;
     public float checkRadiu;
     public Transform frontCheck;
-
     private bool isOnCorner;
-
-
-
     [Header("DownAttack")]
     public float downAttackInterval = 0.5f;
     public float downAttackSpeed;
@@ -113,52 +93,37 @@ public class PlayerController : MonoBehaviour
     public int downNumber;
     public float[] downAttackPower;
     public GameObject downAttackPaticle;
-
     public float downAttackTime;
     private float downAttackTimer;
-
     [Header("ClimbLatter")]
     public float gameGravity;
     private bool isClimbLadder;
-
     [Header("Defense")]
-
     public bool isDefense;
-
     [Header("SpeedLimit")]
-
     public bool isSpeedLimit;
-
     [Header("Hurt")] private bool isBack;
     public float lightHurtSpeed;
     public float heavyHurtSpeed;
     public bool isDead;
     public Animator RedShine;
-
     [Header("��Ļ����")]
     public Cinemachine.CinemachineImpulseSource MyInpulse;
-    
     [Header("UI")]
-    public GameObject floatPoint;
-    public Image hpBar;
-    public Text hpText;
-    public GameObject moneyPoint;
+    public GameObject hpGrid;
+    public GameObject hpUI;
+    public Image energyBar;
     private int state;
-
     [Header("Transport")] public Vector3 backPoint;
     private float backDirection;
     private float backTimer;
     public float backCountTime=15f;
     public static Vector3 respawnPoint;
     [Header("DrinkDrug")]
-    public static int DrinkCount=3;
     private bool isDrinking;
     [Header("Recovery")]
     public Text RecoveryCount;
-
     public GameObject[] stage;
-    
-    
     [Header("Material")] 
     public float NormalIntensity = 0.5f;
     public float flashIntensity = 100f;
@@ -168,13 +133,16 @@ public class PlayerController : MonoBehaviour
     private float fade = 1f;
     void Start()
     {
-        respawnPoint = backPoint;
+        cureEnergy = playerProperty.energyCure;
+        hp = playerProperty.hp;
+        maxHP = playerProperty.maxHP;
+        energy = playerProperty.energy;
+        maxEnergy = playerProperty.maxEnergy;
         material = GetComponent<SpriteRenderer>().material;
         // playerInventory.itemList[0] = default;
         MyInpulse = GetComponent<Cinemachine.CinemachineImpulseSource>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
         isRun = true;
     }
     // Update is called once per frame
@@ -195,13 +163,10 @@ public class PlayerController : MonoBehaviour
         Roll();
         DownAttack();
         HPControl();
-        Drink();    
-        RecoveryCount.text = DrinkCount.ToString();
-        
+        energyControll();
+
 
     }
-    
-    
     public void FindBound()
     {
         if(GameObject.Find("Bound"))
@@ -215,7 +180,6 @@ public class PlayerController : MonoBehaviour
     {
         MyInpulse.GenerateImpulse();
     }
-    
     private void DownAttack()
     {
         downAttackTimer+= Time.deltaTime;
@@ -245,8 +209,6 @@ public class PlayerController : MonoBehaviour
         isGetUp = anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerGetUp");
         horizontalmove = Input.GetAxis("Horizontal");
         float facedirection = Input.GetAxisRaw("Horizontal");
-        //��ɫ�ƶ�
-        floatPoint.transform.localScale = new Vector3(gameObject.transform.localScale.x,1,1);
         if (!isDrinking&&!isDead&&!isBack && !isAttack && !isGetUp && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerHeavyHurt") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !anim.GetBool("DownAttacking") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDownAttackGetUp") && !isOnCorner)
         {
        
@@ -323,7 +285,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    
     private void Roll()
     {
        
@@ -411,48 +372,76 @@ public class PlayerController : MonoBehaviour
         isAttack = false;
         rb.gravityScale = gameGravity;
     }
-    private void GetHeavyHit(float hurtDirection, float hurtCalculation)
+    private void GetHeavyHit(float hurtDirection)
     {
         //isLghtHurt = true;
         //this.hurtDirection = hurtDirection;
         if (!isRoll && !anim.GetBool("DownAttacking") && !isDead&&!isBack)
         {
             rb.velocity = new Vector3(-hurtDirection * heavyHurtSpeed, 0, 0);
-            hp -= hurtCalculation;
+            hp -= 1;
+            StartCoroutine(HPDisappear(hpUI.transform.GetChild(hp).GetComponent<Image>()));
             anim.SetTrigger("HeavyHurting");
             AttackOver();
-            FloatPoint(hurtCalculation);
             RedShine.SetTrigger("Shining");
             //SoundManager.instance.Hurt();
         }
     }
-    private void GetLightHit(float hurtDirection, float hurtCalculation)
+    private void GetLightHit(float hurtDirection)
     {
         //isLghtHurt = true;
         //this.hurtDirection = hurtDirection;
         if (!isRoll && !anim.GetBool("DownAttacking") && !isDead&&!isBack)
         {
             rb.velocity = new Vector3(-hurtDirection * lightHurtSpeed, 0, 0);
-            hp -= hurtCalculation;
+            hp -= 1;
+            StartCoroutine(HPDisappear(hpUI.transform.GetChild(hp).GetComponent<Image>()));
             anim.SetTrigger("LightHurting");
-            FloatPoint(hurtCalculation);
             AttackOver();
             RedShine.SetTrigger("Shining");
             //SoundManager.instance.Hurt();
         }
     }
-
+    private void energyControll()
+    {
+        energy = Mathf.Clamp(energy, 0, maxEnergy);
+        energyBar.fillAmount = energy / maxEnergy;
+        if(Input.GetKeyDown(KeyCode.R)&&!isDrinking&&hp<maxHP)
+        {
+            if(energy>=cureEnergy)
+            {
+                energy -= cureEnergy;
+                playerProperty.energy -= cureEnergy;
+                anim.SetBool("Drinking", true);
+                isDrinking = true;
+                Invoke("EndDrink", 1.5f);
+            }
+        }
+    }
     private void HPControl()
     {
         hp = Mathf.Clamp(hp, 0, maxHP);
         if (hp == 0)
         {
-
             anim.SetTrigger("Die");
             isDead = true;
         }
-        hpBar.fillAmount = hp / maxHP;
-        hpText.text = hp + "/" + maxHP;
+    }
+    private IEnumerator HPAppear(Image t)
+    {
+        while (t.color.a < 1)
+        {
+            t.color += new Color(0, 0, 0, Time.deltaTime);
+            yield return null;
+        }
+    }
+    private IEnumerator HPDisappear(Image t)
+    {
+        while (t.color.a > 0)
+        {
+            t.color -= new Color(0, 0, 0, Time.deltaTime);
+            yield return null;
+        }
     }
     public void Respawn()
     {
@@ -461,7 +450,6 @@ public class PlayerController : MonoBehaviour
         {
             hp = maxHP;
             transform.position = respawnPoint;
-
             transform.localScale = new Vector3(-1,1,1);
         }
 
@@ -469,13 +457,9 @@ public class PlayerController : MonoBehaviour
         {
             hp -= 1;
             transform.position = backPoint;
-
             transform.localScale = new Vector3(backDirection,1,1);
         }
-
-     
     }
-
     private void BackPlaceUpdate(float backCountTime)
     {
         backTimer += Time.deltaTime;
@@ -491,16 +475,12 @@ public class PlayerController : MonoBehaviour
        
         attackCalculation = playerInventory.itemList[0].WeaponAttackPower;
     }
-    private void FloatPoint(float damage)
-    {
-        floatPoint.SetActive(false);
-        floatPoint.GetComponent<Text>().text = damage.ToString();
-        floatPoint.SetActive(true);
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("DeathTrap"))
         {
+            hp -= 1;
+            StartCoroutine(HPDisappear(hpUI.transform.GetChild(hp).GetComponent<Image>()));
             StartCoroutine(Rebirth());
             anim.SetTrigger("Die");
             isBack = true;
@@ -512,11 +492,15 @@ public class PlayerController : MonoBehaviour
             {
                 AttackSense.Instance.HitPause(lightPause);
                 AttackSense.Instance.CameraShake(shakeTime,lightStrength);
+                energy += 3;
+                energyBar.fillAmount = energy / maxEnergy;
             }
             else if (attackType == 2)
             {
                 AttackSense.Instance.HitPause(heavyPause);
                 AttackSense.Instance.CameraShake(shakeTime,heavyStrength);
+                energy += 5;
+                energyBar.fillAmount = energy / maxEnergy;
             }
 
             if (transform.localScale.x > 0)
@@ -540,30 +524,29 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.CompareTag("EnemyArrow"))
         {
-            GetLightHit(collision.transform.parent.localScale.x, collision.GetComponentInParent<EnemyArrow>().attackPower);
+            GetLightHit(collision.transform.parent.localScale.x);
         }
         if (collision.CompareTag("EnemyTrigger"))
         {
             if (!collision.GetComponentInParent<Enemy>().isHeavyAttack)
             {
                 
-                GetLightHit(collision.transform.parent.localScale.x, collision.GetComponentInParent<Enemy>().attackCalculation);
+                GetLightHit(collision.transform.parent.localScale.x);
                 
             }
             else
             {
-                GetHeavyHit(collision.transform.parent.localScale.x, collision.GetComponentInParent<Enemy>().attackCalculation);
-
+                GetHeavyHit(collision.transform.parent.localScale.x);
             }
         }
         if (collision.CompareTag("Skill"))
         {
             if (!isRoll && !anim.GetBool("DownAttacking") && !isDead&&!isBack)
             {
-                hp -= 20;
+                hp -= 1;
+                StartCoroutine(HPDisappear(hpUI.transform.GetChild(hp).GetComponent<Image>()));
                 anim.SetTrigger("HeavyHurting");
                 AttackOver();
-                FloatPoint(20);
                 //SoundManager.instance.Hurt();
             }
         }
@@ -664,8 +647,6 @@ public class PlayerController : MonoBehaviour
                          rb.velocity = new Vector2(-transform.localScale.x * lightspeed * 2f, rb.velocity.y);
                          //SoundManager.instance.Sword02();
                      }*/
-
-
             if (comboStep > 2)
                 comboStep = 1;
             if (comboStep == 1)
@@ -689,34 +670,14 @@ public class PlayerController : MonoBehaviour
     private void ConstantShoot()
     {
         //SoundManager.instance.Shoot();
-    } 
-    private void MoneyPoint()
-    {
-        moneyPoint.SetActive(false);
-        moneyPoint.SetActive(true);
-    }
-    private void Drink()
-    {
-        if(Input.GetKeyDown(KeyCode.R)&&!isDrinking&&hp<maxHP)
-        {
-            if(DrinkCount>=1)
-            {
-                DrinkCount--;
-                anim.SetBool("Drinking", true);
-                isDrinking = true;
-                Invoke("EndDrink", 1.5f);
-            }
-        }
     }
     private void EndDrink()
     {
-        hp += maxHP / 2;
+        hp += 1;
+        StartCoroutine(HPAppear(hpUI.transform.GetChild(hp-1).GetComponent<Image>()));
         anim.SetBool("Drinking",false);
         isDrinking = false;
     }
-    
-
-
     private IEnumerator Rebirth()
     {
         while (fade > 0f)

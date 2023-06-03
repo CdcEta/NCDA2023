@@ -31,7 +31,6 @@ public class RecordPoint : MonoBehaviour
                 }
                 isRecord = true;
                 PlayerController.respawnPoint = transform.position;
-                PlayerController.DrinkCount = 3;
             }
         }
     }
