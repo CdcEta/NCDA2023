@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 900f94c2a9972544fb96d007ce79defd
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - FZZJ-JHTJW
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 17274f525e0771942905931f2cfdd45d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

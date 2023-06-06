@@ -7,27 +7,50 @@ public class Introduce : MonoBehaviour
 {
     private int count;
     private int index;
+    public float speed=1f;
+    public float duration = 0.5f;
     
     private void Awake()
     {
-        count = transform.childCount;
+        count = transform.childCount-4;
+
         index = 0;
         foreach (var t in GetComponentsInChildren<Text>())
             t.color -= new Color(0, 0, 0, 1);
-        StartCoroutine(TextAppear(transform.GetChild(index++).GetComponent<Text>()));
+        foreach (var t in GetComponentsInChildren<Image>())
+            t.color -= new Color(0, 0, 0, 1);
+        foreach (var t in GetComponentsInChildren<Image>())
+            StartCoroutine(ImageAppear(t));
+        StartCoroutine(TextAppear(transform.GetChild(index).GetComponent<Text>()));
         // Destroy(GameObject.Find("menu"));
     }
-
-    private IEnumerator TextAppear(Text t)
+    private IEnumerator ImageAppear(Image t)
     {
-        if(index==0)
-            yield return new WaitForSeconds(1.5f);
         while (t.color.a < 1)
         {
-            t.color += new Color(0, 0, 0, Time.deltaTime);
+            t.color += new Color(0, 0, 0, speed * Time.deltaTime);
             yield return null;
         }
-        yield return new WaitForSeconds(0.6f);
+    }
+    private IEnumerator ImageDisappear(Image t)
+    {
+        yield return new WaitForSeconds(duration);
+        while (t.color.a > 0)
+        {
+            t.color -= new Color(0, 0, 0, speed * Time.deltaTime);
+            yield return null;
+        }
+        gameObject.SetActive(false);
+        yield return null;
+    }
+    private IEnumerator TextAppear(Text t)
+    { 
+        while (t.color.a < 1)
+        {
+            t.color += new Color(0, 0, 0, speed * Time.deltaTime);
+            yield return null;
+        }
+        yield return new WaitForSeconds(duration);
         if (index <= count - 1)
             yield return StartCoroutine(TextAppear(transform.GetChild(index++).GetComponent<Text>()));
         else
@@ -39,12 +62,17 @@ public class Introduce : MonoBehaviour
     }
     private IEnumerator TextDisappear(Text t)
     {
+        if (index == count)
+        {
+            foreach (var i in GetComponentsInChildren<Image>())
+                StartCoroutine(ImageDisappear(i));
+        }
         while (t.color.a > 0)
         {
-            t.color -= new Color(0, 0, 0, Time.deltaTime);
+            t.color -= new Color(0, 0, 0, speed * Time.deltaTime);
             yield return null;
         }
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(duration);
         if (index <= count - 1)
             yield return StartCoroutine(TextDisappear(transform.GetChild(index++).GetComponent<Text>()));
     }

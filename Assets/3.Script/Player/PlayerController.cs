@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool GetAxe;
     [SerializeField]private int hp;
     [SerializeField]private int maxHP;
+    public bool isInTimeline;
     private float energy;
     private float maxEnergy;
     private float cureEnergy;
@@ -156,15 +157,17 @@ public class PlayerController : MonoBehaviour
         isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadiu, Ground |Platform);
         isPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadiu, Platform);
         //  isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadiu,Platform ) ;
-     //   isTouchingFront = (Physics2D.OverlapCircle(frontCheck.position, checkRadiu, Ground));
-        IsRun();
-        WeaponSwitch();
-        Jump();
-        Roll();
-        DownAttack();
-        HPControl();
+        //   isTouchingFront = (Physics2D.OverlapCircle(frontCheck.position, checkRadiu, Ground));
         energyControll();
-
+        HPControl();
+        if (!isInTimeline)
+        {
+            IsRun();
+            WeaponSwitch();
+            Jump();
+            Roll();
+            DownAttack();
+        }
 
     }
     public void FindBound()
@@ -174,7 +177,8 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Movement();
+        if (!isInTimeline)
+            Movement();
     }
     public void IsShake()
     {
@@ -427,6 +431,7 @@ public class PlayerController : MonoBehaviour
         hp = Mathf.Clamp(hp, 0, maxHP);
         if (hp == 0)
         {
+
             anim.SetTrigger("Die");
             isDead = true;
         }
@@ -454,14 +459,15 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Die", false);
         if (isDead)
         {
+            
             hp = maxHP;
             transform.position = respawnPoint;
             transform.localScale = new Vector3(-1,1,1);
+  
         }
 
         if (isBack)
         {
-            hp -= 1;
             transform.position = backPoint;
             transform.localScale = new Vector3(backDirection,1,1);
         }
@@ -570,13 +576,13 @@ public class PlayerController : MonoBehaviour
         if ( !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") &&
             !isAttack && !isOnCorner)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0)&&GetSword)
             {
                 id = 1;
                 anim.SetInteger("AttackID", id);
                 SwordControl();
             }
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1)&& GetAxe)
             {
                 id = 7;
                 anim.SetInteger("AttackID", id);

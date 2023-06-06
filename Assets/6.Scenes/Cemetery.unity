@@ -22492,7 +22492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &626248660
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -39887,7 +39887,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690777199}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -393.2036, y: 10.109356, z: 89.801895}
+  m_LocalPosition: {x: -349.43625, y: 10.16679, z: 89.801895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 512518656}
@@ -46394,15 +46394,17 @@ MonoBehaviour:
   Platform:
     serializedVersion: 2
     m_Bits: 0
+  playerProperty: {fileID: 0}
+  GetSword: 0
+  GetAxe: 0
   hp: 200
   maxHP: 200
+  isInTimeline: 0
   moveAnimationClip:
   - {fileID: 7400000, guid: f45f57d9758d6754194ff485e66dbd05, type: 2}
   - {fileID: 7400000, guid: 57586940db9a17e449a83d9f304b19b4, type: 2}
   animatorMoveOverrideController: {fileID: 0}
   playerInventory: {fileID: 11400000, guid: cf8d385f2ec928842b7cbc0520ba0dab, type: 2}
-  GetSword: 0
-  GetAxe: 0
   id: 1
   comboStep: 0
   interval: 2
@@ -46449,10 +46451,9 @@ MonoBehaviour:
   isDead: 0
   RedShine: {fileID: 185710932813648683}
   MyInpulse: {fileID: 5877219564167662561}
-  floatPoint: {fileID: 5877219565729470433}
-  hpBar: {fileID: 6251971039829003489}
-  hpText: {fileID: 6251971039646223648}
-  moneyPoint: {fileID: 0}
+  hpGrid: {fileID: 0}
+  hpUI: {fileID: 0}
+  energyBar: {fileID: 0}
   backPoint: {x: 0, y: 0, z: 0}
   backCountTime: 15
   RecoveryCount: {fileID: 9147791502155856208}
