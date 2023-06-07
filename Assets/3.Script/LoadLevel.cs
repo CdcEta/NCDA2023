@@ -12,10 +12,6 @@ public class LoadLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            LoadNextLevel(nextScene);
-        }
     }
 
     public void LoadNextLevel(string sceneName)
@@ -28,5 +24,10 @@ public class LoadLevel : MonoBehaviour
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(sceneName);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        LoadNextLevel(nextScene);
     }
 }

@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     [Header("PlayerProperty")] public PlayerProperty playerProperty;
     [SerializeField] private bool GetSword;
     [SerializeField] private bool GetAxe;
+    public bool getKey;
     [SerializeField]private int hp;
     [SerializeField]private int maxHP;
     public bool isInTimeline;
@@ -177,7 +178,6 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (!isInTimeline)
             Movement();
     }
     public void IsShake()
@@ -210,10 +210,12 @@ public class PlayerController : MonoBehaviour
     }
     private void Movement()
     {
+        if (isInTimeline)
+            rb.velocity = Vector2.zero;
         isGetUp = anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerGetUp");
         horizontalmove = Input.GetAxis("Horizontal");
         float facedirection = Input.GetAxisRaw("Horizontal");
-        if (!isDrinking&&!isDead&&!isBack && !isAttack && !isGetUp && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerHeavyHurt") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !anim.GetBool("DownAttacking") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDownAttackGetUp") && !isOnCorner)
+        if (!isInTimeline && !isDrinking&&!isDead&&!isBack && !isAttack && !isGetUp && !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerHeavyHurt") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") && !anim.GetBool("DownAttacking") && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerDownAttackGetUp") && !isOnCorner)
         {
        
             anim.SetFloat("Running", Mathf.Abs(facedirection));
@@ -259,7 +261,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //��ɫ����
-        if (!isOnCorner && facedirection != 0 && !isAttack&&!isDead&&!isBack && !isGetUp && !isRoll)
+        if (!isInTimeline&&!isOnCorner && facedirection != 0 && !isAttack&&!isDead&&!isBack && !isGetUp && !isRoll)
         {
             transform.localScale = new Vector3(facedirection * -1, 1, 1);
         }

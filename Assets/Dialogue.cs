@@ -28,6 +28,5 @@ public class Dialogue : MonoBehaviour
             yield return null;
         }
         gameObject.SetActive(false);
-        yield return null;
     }
 }

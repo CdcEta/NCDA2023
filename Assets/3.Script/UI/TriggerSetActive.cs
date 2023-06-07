@@ -4,18 +4,60 @@ using UnityEngine;
 
 public class TriggerSetActive : MonoBehaviour
 {
+    public bool setByInteraction;
     public GameObject[] openGameObjects;
     public GameObject[] closeGameObjects;
+    public bool isInTrigger;
     // Start is called before the first frame update
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.CompareTag("Player"))
+        if (isInTrigger)
         {
-            foreach(var i in openGameObjects)
+            if (setByInteraction)
             {
-                i.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    foreach (var i in openGameObjects)
+                    {
+                        i.SetActive(true);
+                    }
+                    foreach (var i in closeGameObjects)
+                    {
+                        i.SetActive(false);
+                    }
+                }
             }
         }
+    }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+      
+        if (collision.CompareTag("Player"))
+        {
+            isInTrigger = true;
+            if (!setByInteraction)
+            {
+                foreach (var i in openGameObjects)
+                {
+                    i.SetActive(true);
+                }
+                foreach (var i in closeGameObjects)
+                {
+                    i.SetActive(false);
+                }
+            }
+       
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+            isInTrigger = false;
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        
     }
 }
