@@ -23,7 +23,7 @@ public class SetPlayable : MonoBehaviour
             
                 Interaction();
             
-            gameObject.SetActive(false);
+
         }
     }
 
@@ -32,6 +32,7 @@ public class SetPlayable : MonoBehaviour
         if (setByInteraction && Input.GetKeyDown(KeyCode.F))
         {
             playableDirector.Play();
+            gameObject.SetActive(false);
         }
     }
     private void Trigger()
@@ -39,6 +40,7 @@ public class SetPlayable : MonoBehaviour
         if (setByTrigger)
         {
             playableDirector.Play();
+            gameObject.SetActive(false);
         }
     }
 
@@ -50,7 +52,6 @@ public class SetPlayable : MonoBehaviour
                 isInTrigger = true;
                 Trigger();
         }
-        gameObject.SetActive(false);
     }
 
 
