@@ -37,11 +37,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b3143df017713c2438f0c4b8ec761884, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_78e470cf75e44afb96ddd405e70ac454_Texture_1:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 8400000, guid: d7da6d9191f5c0c4fa0c50108d8f641b, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TwistTex:
@@ -74,8 +78,8 @@ Material:
     - Vector1_e4eb016361d64f3a9968e0d6dfd9082d: 4
     - _AngleOffset: 0.5
     - _Density: 8
-    - _DistortDensity: 70.38
-    - _DistortStrength: 25.52
+    - _DistortDensity: 1
+    - _DistortStrength: 0.07
     - _Distortion: 0.01
     - _Offset: 3
     - _QueueControl: 0
@@ -94,7 +98,7 @@ Material:
     - Color_eceb24c4cc4a49398b3f914c2dbb08a1: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - Vector2_1215687d497d4e33ac48d71797231df2: {r: 0, g: 0.05, b: 0, a: 0}
     - Vector2_43878b9b645041eb8a305e92349addc1: {r: 0, g: 0, b: 0, a: 0}
-    - _DistortVelocity: {r: 0, g: -0.1, b: 0, a: 0}
+    - _DistortVelocity: {r: 0.08, g: 0.1, b: 0, a: 0}
     - _FluidColor: {r: 1, g: 1, b: 1, a: 1}
     - _RippleColor: {r: 1, g: 1, b: 1, a: 1}
     - _RippleSpeed: {r: 0, g: 0.05, b: 0, a: 0}

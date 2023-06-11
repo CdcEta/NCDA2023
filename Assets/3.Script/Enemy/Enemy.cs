@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
     
     protected virtual void  Start()
     {
-        playerController = FindObjectOfType<PlayerController>();;
+        playerController = FindObjectOfType<PlayerController>();
         material = GetComponent<SpriteRenderer>().material;
         layerMask = (1 << 7) | (1 << 8);
         layerMask = ~layerMask;

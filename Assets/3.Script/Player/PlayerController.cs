@@ -30,16 +30,17 @@ public class PlayerController : MonoBehaviour
     public LayerMask Ground;
     public LayerMask Platform;
     [Header("PlayerProperty")] public PlayerProperty playerProperty;
-    [SerializeField] private bool GetSword;
-    [SerializeField] private bool GetAxe;
+    public bool GetSword;
+   public bool GetAxe;
     public bool getKey;
-    [SerializeField]private int hp;
-    [SerializeField]private int maxHP;
+    public int hp;
+    public int maxHP;
     public bool isInTimeline;
-    private float energy;
+    public float energy;
     private float maxEnergy;
     private float cureEnergy;
-    [Header("Animator")]
+
+        [Header("Animator")]
     private Animator anim;
     public AnimationClip[] moveAnimationClip;
     public AnimatorOverrideController animatorMoveOverrideController;
@@ -138,9 +139,19 @@ public class PlayerController : MonoBehaviour
         cureEnergy = playerProperty.energyCure;
         hp = playerProperty.hp;
         maxHP = playerProperty.maxHP;
+        for(int i =0;i<maxHP;i++)
+        {
+            StartCoroutine(HPAppear(hpGrid.transform.GetChild(i).GetComponent<Image>()));
+        }
+        for(int i =0;i<hp;i++)
+        {
+            StartCoroutine(HPAppear(hpUI.transform.GetChild(i).GetComponent<Image>()));
+        }
+ 
         energy = playerProperty.energy;
         maxEnergy = playerProperty.maxEnergy;
         material = GetComponent<SpriteRenderer>().material;
+    
         // playerInventory.itemList[0] = default;
         MyInpulse = GetComponent<Cinemachine.CinemachineImpulseSource>();
         rb = GetComponent<Rigidbody2D>();
@@ -169,7 +180,7 @@ public class PlayerController : MonoBehaviour
             Roll();
             DownAttack();
         }
-
+        
     }
     public void FindBound()
     {
@@ -205,7 +216,6 @@ public class PlayerController : MonoBehaviour
     }
     private void DownAttackGetUp()
     {
-
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     private void Movement()

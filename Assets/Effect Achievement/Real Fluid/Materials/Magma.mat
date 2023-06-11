@@ -15,15 +15,14 @@ MonoBehaviour:
   version: 5
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Magma
   m_Shader: {fileID: -6465566751694194690, guid: 8a883edaa4b76a6488b758ed4aba6cec, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -61,7 +60,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: []
     m_Floats:
     - Vector1_1d727a16510a49d7bb2c4f681a687fe5: 8
     - Vector1_283992269e17470ebbb465b15218bb04: 1
@@ -70,6 +68,7 @@ Material:
     - Vector1_72b8299e6b8b47bcb7f812299115f376: 0.5
     - Vector1_77f25b7653744de2a5398565bc42a445: 11.5
     - Vector1_803a89f9d3194fedb6fcefc22c78abc5: 15
+    - Vector1_871123f3674648079189a84236335b12: 0.5
     - Vector1_8db674d0a806482e87659ac82887bc29: 4
     - Vector1_a273ab244e7e49d597558767489be665: 21.59
     - Vector1_ca2501e7530d4596a0cc1856ec44c1c2: 5
@@ -82,7 +81,9 @@ Material:
     - _Offset: 3
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _RippleAttenuation: 4
+    - _Reflect: 0
+    - _ReflectPlane: 0.3
+    - _RippleAttenuation: 6.36
     - _RippleNoiseScale: 5
     - _RipplePower: 4
     - _RippleScale: 20
@@ -99,7 +100,7 @@ Material:
     - _DistortVelocity: {r: 0, g: -0.1, b: 0, a: 0}
     - _FluidColor: {r: 1, g: 0.078571424, b: 0, a: 1}
     - _RippleColor: {r: 2, g: 0.665448, b: 0, a: 1}
-    - _RippleSpeed: {r: 0, g: 0.05, b: 0, a: 0}
-    - _SurfaceShineColor: {r: 4, g: 1.0039216, b: 0, a: 1}
+    - _RippleSpeed: {r: 0.1, g: 0.05, b: 0, a: 0}
+    - _SurfaceShineColor: {r: 3.9999995, g: 0.1854242, b: 0, a: 1}
     - _Velocity: {r: 0, g: -0.3, b: 0, a: 0}
   m_BuildTextureStacks: []

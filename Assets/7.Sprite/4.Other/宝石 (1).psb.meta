@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 46dcdd065af156840bec95d3ddf5ef30
+guid: ec5b46a093969464c9d757220fad19ca
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -32,7 +32,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 1
+    spritePixelsToUnits: 2
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -46,7 +46,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -91,18 +91,18 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: "\u56FE\u5C42 5"
+  - name: "\u5B9D\u77F33"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 4
-      width: 1024
-      height: 512
-    spriteID: df2c38e2b5ddb324fa9839c17742dd71
+      x: 0
+      y: 145
+      width: 55
+      height: 81
+    spriteID: cb74a5eada256b542b5f2435425b9e53
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -112,19 +112,19 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 4}
-  - name: "\u4EBA\u7269\u6A21\u578B"
+    uvTransform: {x: -281, y: 120}
+  - name: "\u5B9D\u77F32"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1036
-      y: 4
-      width: 30
-      height: 66
-    spriteID: 7eddd96c690bac447950669516fd75d8
+      x: 0
+      y: 0
+      width: 52
+      height: 76
+    spriteID: f81427ea96b6cbb4496f87d01763ace2
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -134,19 +134,19 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 808, y: -107}
-  - name: "\u80CC\u666F"
+    uvTransform: {x: -158, y: -29}
+  - name: "\u5B9D\u77F31"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 524
-      width: 1024
-      height: 512
-    spriteID: 7e9600207a47ed542a14d837f2241efe
+      x: 0
+      y: 70
+      width: 52
+      height: 81
+    spriteID: 520a13866449398418f2c1a8a7bf0e24
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -156,14 +156,14 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 524}
+    uvTransform: {x: -33, y: 45}
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0
@@ -171,10 +171,10 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   - name: Standalone
     overridden: 0
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0
@@ -184,48 +184,48 @@ ScriptedImporter:
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
-  importedTextureWidth: 2048
-  importedTextureHeight: 2048
-  documentSize: {x: 1024, y: 512}
+  importedTextureWidth: 128
+  importedTextureHeight: 256
+  documentSize: {x: 407, y: 128}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
-  textureActualWidth: 2048
-  textureActualHeight: 2048
+  textureActualWidth: 128
+  textureActualHeight: 256
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: "\u56FE\u5C42 5"
-    spriteName: "\u56FE\u5C42 5"
+  - name: "\u5B9D\u77F33"
+    spriteName: "\u5B9D\u77F33"
     isGroup: 0
     parentIndex: -1
-    spriteID: df2c38e2b5ddb324fa9839c17742dd71
-    layerID: 22
+    spriteID: cb74a5eada256b542b5f2435425b9e53
+    layerID: 11
+    mosaicPosition: {x: 4, y: 153}
+  - name: "\u5B9D\u77F32"
+    spriteName: "\u5B9D\u77F32"
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f81427ea96b6cbb4496f87d01763ace2
+    layerID: 6
     mosaicPosition: {x: 4, y: 4}
-  - name: "\u4EBA\u7269\u6A21\u578B"
-    spriteName: "\u4EBA\u7269\u6A21\u578B"
+  - name: "\u5B9D\u77F31"
+    spriteName: "\u5B9D\u77F31"
     isGroup: 0
     parentIndex: -1
-    spriteID: 7eddd96c690bac447950669516fd75d8
-    layerID: 13
-    mosaicPosition: {x: 1036, y: 4}
-  - name: "\u80CC\u666F"
-    spriteName: "\u80CC\u666F"
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 7e9600207a47ed542a14d837f2241efe
-    layerID: 1
-    mosaicPosition: {x: 4, y: 524}
+    spriteID: 520a13866449398418f2c1a8a7bf0e24
+    layerID: 3
+    mosaicPosition: {x: 4, y: 77}
   characterData:
     bones: []
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 0
-  textureAssetName: "\u6B66\u5668\u94FA Texture"
-  prefabAssetName: "\u6B66\u5668\u94FA Prefab"
-  spriteLibAssetName: "\u6B66\u5668\u94FA Sprite Lib"
+  textureAssetName: "\u5B9D\u77F3 (1) Texture"
+  prefabAssetName: "\u5B9D\u77F3 (1) Prefab"
+  spriteLibAssetName: "\u5B9D\u77F3 (1) Sprite Lib"
   secondarySpriteTextures: []

@@ -8,10 +8,12 @@ public class LoadLevel : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
     public string nextScene;
-
-    // Update is called once per frame
+    private PlayerController playerController;
+    public PlayerProperty property;
+        // Update is called once per frame
     void Update()
     {
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     public void LoadNextLevel(string sceneName)
@@ -28,6 +30,24 @@ public class LoadLevel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        LoadNextLevel(nextScene);
+        if (collision.CompareTag("Player"))
+        {   
+            property.hp = playerController.hp;
+            property.maxHP = playerController
+
+.maxHP;
+            property.energy =playerController
+
+.energy;
+            property.getAxe =playerController
+
+.GetAxe;
+            property.getSword =playerController
+
+.GetSword;
+            LoadNextLevel(nextScene);
+        }
+
     }
+    
 }

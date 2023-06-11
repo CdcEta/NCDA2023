@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/6.Scenes/Game/NewVillage.unity
     guid: 5fab15e57fd59a84abe01e16247fc7ce
+  - enabled: 1
+    path: Assets/6.Scenes/Game/NewForest.unity
+    guid: 3dd2a869bb63a9c49a50b7c8851fc004
+  - enabled: 1
+    path: Assets/6.Scenes/Game/NewIsland.unity
+    guid: 23238439125337740935bcf1f278653f
+  - enabled: 1
+    path: Assets/6.Scenes/Game/NewBoss.unity
+    guid: a372c498b70ad7849aef07cc8a822c51
   m_configObjects: {}

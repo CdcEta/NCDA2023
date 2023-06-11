@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 529977994}
+  - component: {fileID: 2506583176479286649}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -24,12 +25,38 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 529977993}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.063965, z: 0}
+  m_LocalScale: {x: 1, y: 1.2249, z: 1}
   m_Children: []
   m_Father: {fileID: 8818522920883954596}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2506583176479286649
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529977993}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.15914917, y: -0.28457642}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 18.257751, y: 58.104767}
+  m_EdgeRadius: 0
 --- !u!1 &1505802831
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +287,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: b333d15cbfd26044dbc308b339bb3d62, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -279,7 +306,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -600645209
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -5945387704664436614, guid: f6e50b216536a5440b0b7ffd1563637d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -380,10 +407,6 @@ MonoBehaviour:
   - 4
   - 6
   - 8
-  defense:
-  - 0
-  - 0
-  - 0
   isBoss: 0
   patrolSpeed: 70
   patrolMinTime: 1
@@ -399,11 +422,10 @@ MonoBehaviour:
   isHeavyAttack: 0
   attackCalculation: 0
   attackCoolingTime: 1
+  lightHurtEffect: {fileID: 0}
+  HeavyHurtEffect: {fileID: 0}
   lightHurtSpeed: 25
   heavyHurtSpeed: 50
-  moneyInWorld: {fileID: 2150591604492986435, guid: dc3902d588c7651418cc83d45c11d1af, type: 3}
-  deadMoneyNum: 5
-  deadMoneyValue: 20
   hurtArtical: {fileID: 1797897115551878417, guid: a0254a8bbd78a694a8052269ecf1cd4f, type: 3}
   floatPoint: {fileID: 7097969228862161617, guid: 8887d50a63f9fe747bcc5da62445c743, type: 3}
   checkRadiu: 0.5
@@ -423,6 +445,10 @@ MonoBehaviour:
   heavyPause: 2
   heavyStrength: 2000
   isDefense: 0
+  NormalIntensity: 0.1
+  flashIntensity: 2
+  flashTime: 0.2
+  playerController: {fileID: 0}
 --- !u!82 &62624237
 AudioSource:
   m_ObjectHideFlags: 0
