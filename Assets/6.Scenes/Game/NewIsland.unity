@@ -666,7 +666,6 @@ Transform:
   m_LocalScale: {x: 497.3913, y: 559.25867, z: 1}
   m_Children: []
   m_Father: {fileID: 1745001579}
-  m_RootOrder: 28
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &51647614
@@ -776,7 +775,7 @@ Transform:
   m_LocalScale: {x: 131.17635, y: 376.43338, z: 1}
   m_Children: []
   m_Father: {fileID: 1745001579}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &63414546
 BoxCollider2D:
@@ -8761,16 +8760,9 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040703229}
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  m_Mesh: {fileID: 201622636}
-=======
-  m_Mesh: {fileID: 1650371242}
->>>>>>> Stashed changes
-=======
+
   m_Mesh: {fileID: 1783202888}
->>>>>>> parent of b1cfbec (1)
---- !u!4 &1040703235
+
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36825,15 +36817,9 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-  - {fileID: 2100000, guid: a16ae5745343a2f4eb31c549401abfaa, type: 2}
-=======
-  - {fileID: 2100000, guid: 6ae87113f937cf74dafdfd1adf178dfd, type: 2}
->>>>>>> Stashed changes
-=======
+
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
->>>>>>> parent of b1cfbec (1)
+
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
