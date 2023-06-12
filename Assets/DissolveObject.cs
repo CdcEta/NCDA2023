@@ -18,13 +18,7 @@ public class DissolveObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (openGameObject != null)
-        {
-            foreach (var variGameObject in openGameObject)
-            {
-                variGameObject.SetActive(true);
-            }
-        }
+
         if (isDissolving)
         {
             fade -= Time.deltaTime;
@@ -35,6 +29,13 @@ public class DissolveObject : MonoBehaviour
                 isDissolving = false;
             }
             material.SetFloat("_Fade",fade);
+            if (openGameObject != null)
+            {
+                foreach (var variGameObject in openGameObject)
+                {
+                    variGameObject.SetActive(true);
+                }
+            }
         }
     
     }
