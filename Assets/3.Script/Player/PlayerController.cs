@@ -289,6 +289,7 @@ public class PlayerController : MonoBehaviour
         //��ɫ����
         if (!isInTimeline&&!isOnCorner && facedirection != 0 && !isAttack&&!isDead&&!isBack && !isGetUp && !isRoll)
         {
+            
             transform.localScale = new Vector3(facedirection * -1, 1, 1);
         }
     }
@@ -496,6 +497,7 @@ public class PlayerController : MonoBehaviour
 
         if (isBack)
         {
+            rb.velocity = Vector2.zero;
             transform.position = backPoint;
             transform.localScale = new Vector3(backDirection,1,1);
         }

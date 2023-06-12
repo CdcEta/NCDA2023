@@ -794,7 +794,6 @@ MonoBehaviour:
   - 750
   attackPower:
   - 7
-  defense: []
   isBoss: 1
   patrolSpeed: 0
   patrolMinTime: 0
@@ -814,9 +813,6 @@ MonoBehaviour:
   HeavyHurtEffect: {fileID: 9013929987732753599}
   lightHurtSpeed: 0
   heavyHurtSpeed: 0
-  moneyInWorld: {fileID: 2150591604492986435, guid: dc3902d588c7651418cc83d45c11d1af, type: 3}
-  deadMoneyNum: 0
-  deadMoneyValue: 0
   hurtArtical: {fileID: 1797897115551878417, guid: a0254a8bbd78a694a8052269ecf1cd4f, type: 3}
   floatPoint: {fileID: 7097969228862161617, guid: 8887d50a63f9fe747bcc5da62445c743, type: 3}
   checkRadiu: 0
@@ -842,6 +838,7 @@ MonoBehaviour:
   flashIntensity: 100
   flashTime: 0.5
   playerController: {fileID: 0}
+  spriteRenderer: {fileID: 5726752630817233869}
   attack01MoveBackSpeed: 100
   attack01MoveJumpSpeed: 300
   attack01MoveForwardSpeed: 500

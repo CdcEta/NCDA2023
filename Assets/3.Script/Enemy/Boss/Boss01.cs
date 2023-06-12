@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Boss01 : Enemy
 {
 
-    [Header("Attack")]
+    [Header("Attack")] public SpriteRenderer spriteRenderer;
     public float attack01MoveBackSpeed;
     public float attack01MoveJumpSpeed;
     public float attack01MoveForwardSpeed;
@@ -37,6 +37,7 @@ public class Boss01 : Enemy
     }
     private void OnEnable()
     {
+        StartCoroutine(BossAppear(spriteRenderer));
         bossHPBar.fillAmount = hp / maxHP[level - 1];
         transform.position = posi;
     }
@@ -45,7 +46,14 @@ public class Boss01 : Enemy
         
         base.Start();
     }
-
+    private IEnumerator BossAppear(SpriteRenderer t)
+    {
+        while (t.color.a < 1)
+        {
+            t.color += new Color(0, 0, 0, Time.deltaTime);
+            yield return null;
+        }
+    }
     // Update is called once per frame
     protected override void Update()
     {
