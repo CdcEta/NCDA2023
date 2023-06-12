@@ -40,12 +40,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_a821e34d119e46149f62374c4e740389: 10
-    - Vector1_e2493270d4914786b14f4551a64a6290: 0.5
+    - Vector1_a821e34d119e46149f62374c4e740389: -0.42
+    - Vector1_e2493270d4914786b14f4551a64a6290: 0.796
     - _Damaged: 0.5
-    - _Fade: 0.4
+    - _Fade: 1
     m_Colors:
     - Color_996c656210b144c688d2a384b9173f4c: {r: 1, g: 1, b: 1, a: 0}
-    - _Color: {r: 0.2509804, g: 4, b: 0, a: 0}
-    - _DamagedColor: {r: 5.340313, g: 5.340313, b: 5.340313, a: 0}
+    - _Color: {r: 12.292797, g: 0.51488155, b: 0, a: 0}
+    - _DamagedColor: {r: 10.680627, g: 10.680627, b: 10.680627, a: 0}
   m_BuildTextureStacks: []

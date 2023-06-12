@@ -26,6 +26,8 @@ TagManager:
   - BossChat
   - EnemyBox
   - DeathTrap
+  - DestroySword
+  - DestroyAxe
   layers:
   - Default
   - TransparentFX
