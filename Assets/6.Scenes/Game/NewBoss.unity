@@ -307,6 +307,8 @@ MonoBehaviour:
   playerProperty: {fileID: 11400000, guid: cd63c0d3f6f350a4dba3271719a2afa2, type: 2}
   GetSword: 1
   GetAxe: 1
+  addSceneHP: 0
+  isAdded: 0
   getKey: 0
   hp: 0
   maxHP: 0
