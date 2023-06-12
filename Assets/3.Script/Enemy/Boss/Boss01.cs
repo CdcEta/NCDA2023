@@ -63,7 +63,7 @@ public class Boss01 : Enemy
         {
             rb.velocity = Vector2.zero;
             playableDirector.Play();
-            Instantiate(loseBoss,transform.position,transform.rotation);
+
             
         //    playerController.ChooseEnd();
         }
@@ -83,10 +83,6 @@ public class Boss01 : Enemy
         {
             //   hp = maxHP[level - 1];
             // bossHPBar.fillAmount = hp / maxHP[level - 1];
-            //talkBoss.SetActive(true);
-            Instantiate(parentObject);
-            
-            Destroy(parentObject);
 
         }
         if ((hp < maxHP[0] / 3 * 2 && skillCount == 0) || (hp < maxHP[0] / 3 && skillCount == 1))

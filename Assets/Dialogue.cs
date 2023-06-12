@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Dialogue : MonoBehaviour
 {
     public float duration = 5f;
-    private void Start()
+    private void OnEnable()
     {
         foreach (var t in GetComponentsInChildren<Text>())
             t.color -= new Color(0, 0, 0, 1);

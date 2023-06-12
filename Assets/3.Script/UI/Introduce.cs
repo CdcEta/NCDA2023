@@ -10,7 +10,7 @@ public class Introduce : MonoBehaviour
     public float speed=1f;
     public float duration = 0.5f;
     
-    private void Awake()
+    private void OnEnable()
     {
         count = transform.childCount-4;
 
