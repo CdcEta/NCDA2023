@@ -163,6 +163,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        AddHP();
         BackPlaceUpdate(backCountTime);
         FindBound();
         animatorMoveOverrideController = new AnimatorOverrideController(anim.runtimeAnimatorController);
