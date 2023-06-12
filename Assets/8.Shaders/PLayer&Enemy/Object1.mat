@@ -42,13 +42,17 @@ Material:
     m_Floats:
 <<<<<<< Updated upstream
     - Vector1_a821e34d119e46149f62374c4e740389: 10
+<<<<<<< HEAD
     - Vector1_e2493270d4914786b14f4551a64a6290: 0.67
 =======
     - Vector1_a821e34d119e46149f62374c4e740389: -0.42
     - Vector1_e2493270d4914786b14f4551a64a6290: 0.868
 >>>>>>> Stashed changes
+=======
+    - Vector1_e2493270d4914786b14f4551a64a6290: 0.5
+>>>>>>> parent of b1cfbec (1)
     - _Damaged: 0.5
-    - _Fade: 1
+    - _Fade: 0.4
     m_Colors:
     - Color_996c656210b144c688d2a384b9173f4c: {r: 1, g: 1, b: 1, a: 0}
     - _Color: {r: 15.999998, g: 0.670157, b: 0, a: 0}
