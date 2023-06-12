@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class Boss01 : Enemy
 {
 
     [Header("Attack")] public SpriteRenderer spriteRenderer;
+    public PlayableDirector playableDirector;
     public float attack01MoveBackSpeed;
     public float attack01MoveJumpSpeed;
     public float attack01MoveForwardSpeed;
@@ -59,17 +61,22 @@ public class Boss01 : Enemy
     {
         if (hp == 0)
         {
+            rb.velocity = Vector2.zero;
+            playableDirector.Play();
             Instantiate(loseBoss,transform.position,transform.rotation);
             
         //    playerController.ChooseEnd();
         }
         base.Update();
-        Boss01Attack();
-        IsFar();
-
-        Direction();
-        Boss01Attack2();
-        Hurt(); 
+        if (hp != 0)
+        {
+            Boss01Attack();
+            IsFar();
+            Direction();
+            Boss01Attack2();
+            Hurt(); 
+        }
+   
         bossHPBar.fillAmount = hp / maxHP[level - 1];
 
         if (playerController.isDead)

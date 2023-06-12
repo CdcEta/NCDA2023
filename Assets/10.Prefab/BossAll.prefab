@@ -839,6 +839,7 @@ MonoBehaviour:
   flashTime: 0.5
   playerController: {fileID: 0}
   spriteRenderer: {fileID: 5726752630817233869}
+  playableDirector: {fileID: 0}
   attack01MoveBackSpeed: 100
   attack01MoveJumpSpeed: 300
   attack01MoveForwardSpeed: 500
@@ -1323,7 +1324,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: cd533fcdda1f0fd46b0ecb014ab08c10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
