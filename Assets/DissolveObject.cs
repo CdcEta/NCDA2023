@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dissolve : MonoBehaviour
+public class DissolveObject : MonoBehaviour
 {
     private Material material;
-
-    private bool isDissolving = false;
+    public GameObject[] openGameObject;
+    public bool isDissolving = false;
 
     private float fade = 1f;
     // Start is called before the first frame update
@@ -14,18 +14,19 @@ public class Dissolve : MonoBehaviour
     {
         material = GetComponent<SpriteRenderer>().material;
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (openGameObject != null)
         {
-            isDissolving = true;
+            foreach (var variGameObject in openGameObject)
+            {
+                variGameObject.SetActive(true);
+            }
         }
-
         if (isDissolving)
         {
-            
             fade -= Time.deltaTime;
 
             if (fade<=0f)
@@ -34,9 +35,7 @@ public class Dissolve : MonoBehaviour
                 isDissolving = false;
             }
             material.SetFloat("_Fade",fade);
-            
         }
+    
     }
-
-
 }

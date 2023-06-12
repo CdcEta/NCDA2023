@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     [Header("PlayerProperty")] public PlayerProperty playerProperty;
     public bool GetSword;
    public bool GetAxe;
+   public bool addSceneHP;
+   public bool isAdded;
     public bool getKey;
     public int hp;
     public int maxHP;
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
     public float energy;
     private float maxEnergy;
     private float cureEnergy;
-
+    
         [Header("Animator")]
     private Animator anim;
     public AnimationClip[] moveAnimationClip;
@@ -181,6 +183,18 @@ public class PlayerController : MonoBehaviour
             DownAttack();
         }
         
+    }
+
+    public void AddHP()
+    {
+        if (addSceneHP&&!isAdded )
+        {
+            maxHP++;
+            hp++;
+            StartCoroutine(HPAppear(hpGrid.transform.GetChild(maxHP-1).GetComponent<Image>()));
+            StartCoroutine(HPAppear(hpUI.transform.GetChild(hp-1).GetComponent<Image>()));
+            isAdded = true;
+        }
     }
     public void FindBound()
     {
@@ -526,7 +540,7 @@ public class PlayerController : MonoBehaviour
                 energy += 5;
                 energyBar.fillAmount = energy / maxEnergy;
             }
-
+            
             if (transform.localScale.x > 0)
             {
                 collision.GetComponentInParent<Enemy>().GetHit(Vector2.left, attackType);
@@ -534,6 +548,23 @@ public class PlayerController : MonoBehaviour
             else if (transform.localScale.x < 0)
             {
                 collision.GetComponentInParent<Enemy>().GetHit(Vector2.right, attackType);
+            }
+        }
+        if (collision.CompareTag("DestroySword"))
+        {
+            Debug.Log("已攻击到物体");
+            if (isAttack&&id == 1)
+            {
+                collision.GetComponentInParent<DissolveObject>().isDissolving = true;
+            }
+        }
+            
+        if (collision.CompareTag("DestroyAxe"))
+        {
+            Debug.Log("已攻击到物体");
+            if (isAttack&&id == 7)
+            {
+                collision.GetComponentInParent<DissolveObject>().isDissolving = true;
             }
         }
         if (collision.CompareTag("Corner") && !isRoll&&this.transform.localScale.x * collision.transform.localScale.x < 0 && !anim.GetBool("DownAttacking") && !isAttack)
