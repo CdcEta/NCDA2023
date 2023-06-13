@@ -85,7 +85,7 @@ public class Boss01 : Enemy
             // bossHPBar.fillAmount = hp / maxHP[level - 1];
 
         }
-        if ((hp < maxHP[0] / 3 * 2 && skillCount == 0) || (hp < maxHP[0] / 3 && skillCount == 1))
+        if ((hp < maxHP[0] / 4 * 3 && skillCount == 0) || (hp < maxHP[0] / 2 && skillCount == 1)|| (hp < maxHP[0] / 4 && skillCount == 2))
         {
             isSkill = true;
             skillCount++;

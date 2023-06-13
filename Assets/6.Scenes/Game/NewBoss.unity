@@ -5416,6 +5416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77786cd91079d24085dbef481ef5eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuLoader: 0
   isLoadNext: 0
   transition: {fileID: 544858502}
   transitionTime: 1
@@ -24725,7 +24726,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 093f3759ec5437547a703f6c440e483e, type: 2}
     - target: {fileID: 5726752630817233871, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
       propertyPath: hp
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5726752630817233871, guid: 14caa3baa4c683f4aaf29155421e1f7f, type: 3}
       propertyPath: flashTime
