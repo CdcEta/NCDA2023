@@ -7296,7 +7296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3222450084254749964, guid: d4d5f5fcd12e55949a3d4b84ede918ed, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6140245576286815733, guid: d4d5f5fcd12e55949a3d4b84ede918ed, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7384,7 +7384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7871238915993185374, guid: d4d5f5fcd12e55949a3d4b84ede918ed, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7871238916918637566, guid: d4d5f5fcd12e55949a3d4b84ede918ed, type: 3}
       propertyPath: m_IsActive
@@ -29843,6 +29843,8 @@ MonoBehaviour:
   playerProperty: {fileID: 11400000, guid: cd63c0d3f6f350a4dba3271719a2afa2, type: 2}
   GetSword: 0
   GetAxe: 0
+  addSceneHP: 0
+  isAdded: 0
   getKey: 0
   hp: 0
   maxHP: 0
@@ -37956,6 +37958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77786cd91079d24085dbef481ef5eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoadNext: 0
   transition: {fileID: 1038130622}
   transitionTime: 1
   nextScene: NewForest
