@@ -20588,7 +20588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 236935420}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &1190266706
@@ -21317,7 +21317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 236935420}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &1241209295
@@ -27430,7 +27430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426700468}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -191.82666, y: 30.292557, z: 79.801895}
+  m_LocalPosition: {x: -267.18774, y: 13.813583, z: 79.801895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 921518303}
@@ -37958,6 +37958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77786cd91079d24085dbef481ef5eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuLoader: 0
   isLoadNext: 0
   transition: {fileID: 1038130622}
   transitionTime: 1

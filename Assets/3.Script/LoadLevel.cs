@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour
 {
+    public bool menuLoader;
     public bool isLoadNext;
     public Animator transition;
     public float transitionTime = 1f;
@@ -14,6 +15,13 @@ public class LoadLevel : MonoBehaviour
         // Update is called once per frame
     void Update()
     {
+        if (menuLoader)
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                LoadNextLevel(nextScene);
+            }
+        }
         playerController = FindObjectOfType<PlayerController>();
         if (playerController.isDead)
         {
