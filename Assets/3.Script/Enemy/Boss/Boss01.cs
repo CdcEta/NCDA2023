@@ -63,13 +63,13 @@ public class Boss01 : Enemy
         {
             rb.velocity = Vector2.zero;
             playableDirector.Play();
-
-            
-        //    playerController.ChooseEnd();
+            AudioAtop();
+            //    playerController.ChooseEnd();
         }
-        base.Update();
+      
         if (hp != 0)
         {
+            base.Update();
             Boss01Attack();
             IsFar();
             Direction();

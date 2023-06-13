@@ -71,7 +71,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setByInteraction: 0
-  openGameObjects:
-  - {fileID: 0}
+  openGameObjects: []
   closeGameObjects: []
   isInTrigger: 0

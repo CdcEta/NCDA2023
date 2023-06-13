@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
     private int state;
     [Header("Transport")] public Vector3 backPoint;
     private float backDirection;
-    private float backTimer;
+    private float backTimer=15f;
     public float backCountTime=15f;
     public static Vector3 respawnPoint;
     [Header("DrinkDrug")]
