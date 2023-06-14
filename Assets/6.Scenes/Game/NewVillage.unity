@@ -11190,6 +11190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 794918364}
+  - component: {fileID: 794918365}
   m_Layer: 0
   m_Name: IntroduceTile
   m_TagString: Untagged
@@ -11212,6 +11213,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &794918365
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794918363}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &796278194
 GameObject:
   m_ObjectHideFlags: 0
@@ -36704,6 +36724,8 @@ PlayableDirector:
     value: {fileID: 1931579353}
   - key: {fileID: -593130223890861810, guid: f57578e74e4a1a840861af74dda077e6, type: 2}
     value: {fileID: 794918363}
+  - key: {fileID: -3970148095352408489, guid: f57578e74e4a1a840861af74dda077e6, type: 2}
+    value: {fileID: 794918365}
   m_ExposedReferences:
     m_References:
     - 74a3844dd55bc714dab23316d070019f: {fileID: 1241209295}
