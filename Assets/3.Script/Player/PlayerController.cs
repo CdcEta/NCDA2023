@@ -165,11 +165,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (transform.position.x < -5000f)
-        {
-            hp -= 1;
-            StartCoroutine(HPDisappear(hpUI.transform.GetChild(hp).GetComponent<Image>()));
-        }
         AddHP();
         BackPlaceUpdate(backCountTime);
         FindBound();
@@ -635,7 +630,7 @@ public class PlayerController : MonoBehaviour
     private void WeaponSwitch()
     {
         if ( !isRoll && !anim.GetCurrentAnimatorStateInfo(0).IsName("PlayerLightHurt") &&
-            !isAttack && !isOnCorner&&!isInTimeline)
+            !isAttack && !isOnCorner)
         {
             if (Input.GetMouseButtonDown(0)&&GetSword)
             {
