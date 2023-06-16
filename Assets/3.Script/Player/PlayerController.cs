@@ -165,6 +165,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (transform.position.y < -5000)
+        {
+            hp -= 1;
+            StartCoroutine(HPDisappear(hpUI.transform.GetChild(hp).GetComponent<Image>()));
+            StartCoroutine(Rebirth());
+            anim.SetTrigger("Die");
+            isBack = true;
+        }
         AddHP();
         BackPlaceUpdate(backCountTime);
         FindBound();
