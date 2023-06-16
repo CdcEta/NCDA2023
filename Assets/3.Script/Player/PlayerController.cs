@@ -8,6 +8,7 @@ using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
+
     //单例模式
     private static PlayerController instance;
     public static PlayerController Instance
@@ -172,7 +173,8 @@ public class PlayerController : MonoBehaviour
 
         isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadiu, Ground |Platform);
         isPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadiu, Platform);
-        //  isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadiu,Platform ) ;
+      
+        //  isGround = Physics2D.OverlapCircle(groundCheck.position, checkRadiu,Platform);
         //   isTouchingFront = (Physics2D.OverlapCircle(frontCheck.position, checkRadiu, Ground));
         energyControll();
         HPControl();
@@ -321,7 +323,7 @@ public class PlayerController : MonoBehaviour
     private void Roll()
     {
         rollTimer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !isDrinking && rollTimer > dashCoolingTime&&!isAttack&&!isOnCorner&&!isDead&&!isBack)
+        if (!isInTimeline&&Input.GetKeyDown(KeyCode.LeftShift) && !isDrinking && rollTimer > dashCoolingTime&&!isAttack&&!isOnCorner&&!isDead&&!isBack)
         {
             isRoll = true;
             rb.gravityScale = 0;
@@ -505,11 +507,14 @@ public class PlayerController : MonoBehaviour
     private void BackPlaceUpdate(float backCountTime)
     {
         backTimer += Time.deltaTime;
-        if (backTimer > backCountTime&& isGround&&!isPlatform)
+        if (backTimer > backCountTime&& isGround)
         {
-            backDirection = transform.localScale.x;
-            backPoint = transform.position;
-            backTimer = 0;
+            if (!isPlatform)
+            {
+                backDirection = transform.localScale.x;
+                backPoint = transform.position;
+                backTimer = 0;
+            }
         }
     }
     private void AttackCalculation(int stage)
@@ -529,7 +534,7 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("Die");
             isBack = true;
         }
-        if (collision.CompareTag("EnemyBox"))
+        if (isAttack&&collision.CompareTag("EnemyBox"))
         {
             Debug.Log("已攻击到敌人");
             if (attackType == 1)
@@ -556,7 +561,7 @@ public class PlayerController : MonoBehaviour
                 collision.GetComponentInParent<Enemy>().GetHit(Vector2.right, attackType);
             }
         }
-        if (collision.CompareTag("DestroySword"))
+        if (isAttack&&collision.CompareTag("DestroySword"))
         {
             Debug.Log("已攻击到物体");
             if (isAttack&&id == 1)
@@ -565,7 +570,7 @@ public class PlayerController : MonoBehaviour
             }
         }
             
-        if (collision.CompareTag("DestroyAxe"))
+        if (isAttack&&collision.CompareTag("DestroyAxe"))
         {
             Debug.Log("已攻击到物体");
             if (isAttack&&id == 7)

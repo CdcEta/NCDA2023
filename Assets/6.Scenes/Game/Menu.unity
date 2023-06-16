@@ -408,7 +408,9 @@ MonoBehaviour:
   transition: {fileID: 439698745}
   transitionTime: 1
   nextScene: NewVillage
+  noPlayer: 0
   property: {fileID: 0}
+  beginTime: 3
 --- !u!4 &386434604
 Transform:
   m_ObjectHideFlags: 0

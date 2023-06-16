@@ -203,12 +203,7 @@ public class Enemy : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
-    protected void FloatPoint(float damage)
-    {
-        GameObject fp = Instantiate(floatPoint,transform.position,transform.rotation);
-        fp.GetComponentInChildren<Text>().text =damage.ToString();
-        Destroy(fp, 2f);
-    }
+  
     public void IsHeavyAttack()
     {
         isHeavyAttack = true;
@@ -383,7 +378,7 @@ public class Enemy : MonoBehaviour
     public void GetHit(Vector2 hurtDirection,int hurtType)
     {
         Debug.Log("已受伤");
-        FloatPoint(playerController.attackCalculation);
+
         hp -= playerController.attackCalculation;
         AudioHurt();
         StartCoroutine(HurtFlash());
