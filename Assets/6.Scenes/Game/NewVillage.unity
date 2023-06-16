@@ -17115,7 +17115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 886985241}
   m_Layer: 0
-  m_Name: Pasue
+  m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37551,7 +37551,9 @@ MonoBehaviour:
   transition: {fileID: 1038130622}
   transitionTime: 1
   nextScene: NewForest
+  noPlayer: 0
   property: {fileID: 11400000, guid: cd63c0d3f6f350a4dba3271719a2afa2, type: 2}
+  beginTime: 0
 --- !u!61 &2115136386
 BoxCollider2D:
   m_ObjectHideFlags: 0
