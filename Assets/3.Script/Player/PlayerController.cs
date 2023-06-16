@@ -470,6 +470,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator HPAppear(Image t)
     {
         t.color -= new Color(0, 0, 0, 1);
+        yield return null;
         while (t.color.a < 1)
         {
             t.color += new Color(0, 0, 0, Time.deltaTime);
@@ -479,6 +480,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator HPDisappear(Image t)
     {
         t.color += new Color(0, 0, 0, 1);
+        yield return null;
         while (t.color.a > 0)
         {
             t.color -= new Color(0, 0, 0, Time.deltaTime);
