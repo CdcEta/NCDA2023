@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 415921686}
   m_Layer: 6
   m_Name: E001
-  m_TagString: Enemy
+  m_TagString: EnemyBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
