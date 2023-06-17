@@ -764,7 +764,7 @@ public class PlayerController : MonoBehaviour
             material.SetFloat("_Fade", fade);
             yield return null;
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         while (fade<1f)
         {
             fade += Time.deltaTime;
