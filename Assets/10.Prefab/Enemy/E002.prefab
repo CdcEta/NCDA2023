@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 6302613090556385297}
   m_Layer: 6
   m_Name: E002
-  m_TagString: Enemy
+  m_TagString: EnemyBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -591,7 +591,7 @@ MonoBehaviour:
   frontCheck: {fileID: 1635073041788116524}
   Ground:
     serializedVersion: 2
-    m_Bits: 16640
+    m_Bits: 18688
   closeDistance: 0
   closeSpeed: 0
   audioSource: {fileID: 6302613090556385297}
