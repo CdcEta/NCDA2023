@@ -2200,14 +2200,14 @@ MonoBehaviour:
     m_Recordable: 1
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 2.583333333333332
+    m_PostExtrapolationTime: 0.5333333333333314
     m_PreExtrapolationTime: 0
     m_DisplayName: Recorded
   - m_Version: 1
-    m_Start: 6.75
+    m_Start: 4.699999999999999
     m_ClipIn: 2.166666676600773
     m_Asset: {fileID: -5565987327537729905}
-    m_Duration: 3.3499999999999996
+    m_Duration: 2.583333333333334
     m_TimeScale: 1
     m_ParentTrack: {fileID: 6122893047425675381}
     m_EaseInDuration: 0
