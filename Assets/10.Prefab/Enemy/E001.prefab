@@ -433,7 +433,7 @@ MonoBehaviour:
   frontCheck: {fileID: 8818522921437151148}
   Ground:
     serializedVersion: 2
-    m_Bits: 18688
+    m_Bits: 16640
   closeDistance: 0
   closeSpeed: 0
   audioSource: {fileID: 415921686}

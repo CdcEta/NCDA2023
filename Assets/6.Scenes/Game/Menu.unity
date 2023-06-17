@@ -410,7 +410,7 @@ MonoBehaviour:
   nextScene: NewVillage
   noPlayer: 0
   property: {fileID: 0}
-  beginTime: 0
+  beginTime: 3
 --- !u!4 &386434604
 Transform:
   m_ObjectHideFlags: 0

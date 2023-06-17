@@ -307,6 +307,7 @@ MonoBehaviour:
   - 40
   - 30
   - 40
+  defense: []
   isBoss: 0
   patrolSpeed: 55
   patrolMinTime: 2
@@ -326,6 +327,9 @@ MonoBehaviour:
   HeavyHurtEffect: {fileID: 106853023882963094}
   lightHurtSpeed: 25
   heavyHurtSpeed: 50
+  moneyInWorld: {fileID: 2150591604492986435, guid: dc3902d588c7651418cc83d45c11d1af, type: 3}
+  deadMoneyNum: 2
+  deadMoneyValue: 20
   hurtArtical: {fileID: 1797897115551878417, guid: a0254a8bbd78a694a8052269ecf1cd4f, type: 3}
   floatPoint: {fileID: 7097969228862161617, guid: 8887d50a63f9fe747bcc5da62445c743, type: 3}
   checkRadiu: 0
@@ -333,7 +337,7 @@ MonoBehaviour:
   frontCheck: {fileID: 8494308136933810453}
   Ground:
     serializedVersion: 2
-    m_Bits: 18688
+    m_Bits: 16640
   closeDistance: 50
   closeSpeed: 125
   audioSource: {fileID: 3757773732172031784}
