@@ -520,7 +520,7 @@ MonoBehaviour:
   isLoadNext: 0
   transition: {fileID: 439698745}
   transitionTime: 1
-  nextScene: NewVillage
+  nextScene: NewIntro1
   noPlayer: 0
   property: {fileID: 0}
   beginTime: 0

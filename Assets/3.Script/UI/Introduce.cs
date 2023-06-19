@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Introduce : MonoBehaviour
 {
     private int count;
     private int index;
     public float speed=1f;
     public float duration = 0.5f;
-    
+    public bool toNext;
+    public string sceneName;
     private void OnEnable()
     {
-        count = transform.childCount-4;
+        count = transform.childCount-3;
 
         index = 0;
         foreach (var t in GetComponentsInChildren<Text>())
@@ -75,6 +76,17 @@ public class Introduce : MonoBehaviour
         yield return new WaitForSeconds(duration);
         if (index <= count - 1)
             yield return StartCoroutine(TextDisappear(transform.GetChild(index++).GetComponent<Text>()));
+        else if (toNext) 
+        {
+            yield return new WaitForSeconds(1);
+            StartCoroutine(Load(sceneName));
+        }
     }
     
+    IEnumerator Load(string sceneName)
+    {
+       // yield return new WaitForSeconds(beginTime);
+        SceneManager.LoadScene(sceneName);
+        yield return null;
+    }
 }
