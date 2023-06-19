@@ -5691,7 +5691,7 @@ MonoBehaviour:
   isLoadNext: 0
   transition: {fileID: 544858502}
   transitionTime: 1
-  nextScene: NewEnd
+  nextScene: NewIntro2
   noPlayer: 0
   property: {fileID: 0}
   beginTime: 0
@@ -5931,7 +5931,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 489e0971d2c5a4945a178eebd3950b8a, type: 3}
-  m_Color: {r: 1, g: 0.61960787, b: 0.7144541, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6239,7 +6239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &250230678
 Transform:
   m_ObjectHideFlags: 0
@@ -9144,7 +9144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &778556987
 Transform:
   m_ObjectHideFlags: 0
@@ -14663,7 +14663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2169511060281306540, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_Text
-      value: "\u65E0\u77E5\u7684\u52C7\u58EB\u554A\n\t\u62E5\u6709\u5982\u6B64\u529B\u91CF\n\t\t\u4E3A\u4F55\u4E0D\u73CD\u60DC\u5F53\u4E0B"
+      value: "\u65E0\u77E5\u7684\u52C7\u8005\u554A\uFF0C\u6C47\u96C6\u4E09\u201C\u6E90\u201D\n\u4F60\u5DF2\u7ECF\u638C\u63E1\u4E86\u4E2A\u4E16\u754C\u7684\u8D22\u5BCC\u4E0E\u8D44\u6E90\u4E86"
       objectReference: {fileID: 0}
     - target: {fileID: 2169511060281306540, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_Color.b
@@ -15264,6 +15264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crow
       objectReference: {fileID: 0}
+    - target: {fileID: 4344637343657728723, guid: e1cca04b28d101242b68c3e9e3989ef7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1cca04b28d101242b68c3e9e3989ef7, type: 3}
 --- !u!4 &1010483906 stripped
@@ -15508,7 +15512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\r\u6216\u8BB8\u6062\u590D\u73AF\u5883\u8FDC\u8FDC\u4E0D\u4EC5\u4EC5\u662F\u62FF\u5230\u5B9D\u77F3\u8FD9\u4E48\u7B80\u5355\r\n"
+  m_Text: "\r\u6216\u8BB8\u6062\u590D\u73AF\u5883\u8FDC\u8FDC\u4E0D\u4EC5\u4EC5\u662F\u62FF\u5230\u201C\u6E90\u201D\u8FD9\u4E48\u7B80\u5355\r\n"
 --- !u!222 &1127728709
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15881,6 +15885,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   duration: 0.5
+  toNext: 0
+  sceneName: 
 --- !u!114 &1221473796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21975,8 +21981,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 41.6
-      minScalar: 28.2
+      scalar: 33.5
+      minScalar: 8.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -27689,7 +27695,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u56FD\u738B\u4E00\u5B9A\u4E0D\u4F1A\u5C31\u8FD9\u4E48\u5584\u7F62\u7518\u4F11\u7684\r\n"
+  m_Text: "\u56FD\u738B\u5B9A\u4E0D\u4F1A\u5C31\u8FD9\u6837\u5584\u7F62\u7518\u4F11\n"
 --- !u!222 &1770865283
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28381,7 +28387,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: d641380befd8d4e4b994a34e43fc40b9, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 8fc77130e58126248a9418ff6ed10e9c, type: 2}
 --- !u!4 &1862999787
 Transform:
   m_ObjectHideFlags: 0
@@ -28591,6 +28597,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   duration: 0.5
+  toNext: 0
+  sceneName: 
 --- !u!114 &1904602146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28797,7 +28805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2169511060281306540, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_Text
-      value: "\u4E0E\u6211\u6218\u6597\n\t\u5C06\u662F\u4F60\u505A\u8FC7\u6700\u9519\u8BEF\u7684\u9009\u62E9"
+      value: "\u4F60\u65E0\u6076\u4E0D\u4F5C\uFF0C\u7AED\u6CFD\u800C\u6E14\uFF0C\u7834\u574F\u73AF\u5883\uFF0C\u6C11\u4E0D\u804A\u751F\n\u6211\u5FC5\u5C06\u548C\u4F60\u51B3\u4E00\u6B7B\u6218\uFF0C\u593A\u56DE\u201C\u6E90\u201C\u6240\u8D4B\u4E88\u4F60\u7684\u4E00\u5207"
       objectReference: {fileID: 0}
     - target: {fileID: 2169511060281306540, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_Color.b
@@ -29854,7 +29862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31121,7 +31129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31439,7 +31447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31648,7 +31656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -32969,7 +32977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
