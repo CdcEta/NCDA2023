@@ -39965,7 +39965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2169511060281306540, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_Text
-      value: "\u4E30\u6536\u4E4B\u6E90\uFF0C\u662F\u8FD9\u4E2A\u56FD\u5EA6\u7684\u751F\u547D\u4E4B\u6CC9\uFF0C\r\n\u6CA1\u6709\u5B83\uFF0C\u8FD9\u7247\u571F\u5730\u5C06\u4F1A\u9677\u5165\u9965\u8352\r\n\r\n"
+      value: "\u4E30\u6536\u4E4B\u6E90\uFF0C\u662F\u8FD9\u4E2A\u56FD\u5EA6\u7684\u751F\u547D\u4E4B\u6CC9\n\u6CA1\u6709\u5B83\uFF0C\u8FD9\u7247\u571F\u5730\u5C06\u4F1A\u9677\u5165\u9965\u8352\r\n\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 2169511060281306540, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_Color.a
@@ -42808,7 +42808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2169511060281306540, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_Text
-      value: "\u6211\u4E0D\u80FD\u5C31\u8FD9\u6837\u770B\u7740\u8FD9\u4E2A\u4E16\u754C\u9677\u5165\u4E00\u7247\u9ED1\u6697\u3002\r\n\u8FD9\u4F4D\u58EB\u5175\u7684\u727A\u7272\u4E0D\u5E94\u8BE5\u662F\u6BEB\u65E0\u610F\u4E49\u7684\n\u6211\u5FC5\u987B\u7EE7\u7EED\u4ED6\u7684\u4F7F\u547D\n"
+      value: "\u8FD9\u4E2A\u4E16\u754C\u4E0D\u80FD\u6C38\u8FDC\u662F\u4E00\u7247\u9ED1\u6697\r\n\u8FD9\u4F4D\u58EB\u5175\u7684\u727A\u7272\u4E0D\u5E94\u8BE5\u662F\u6BEB\u65E0\u610F\u4E49\u7684\n\u6211\u5FC5\u987B\u62FF\u8D77\u4ED6\u7684\u5200\u5203\n\u7EE7\u7EED\u4ED6\u7684\u4F7F\u547D\n"
       objectReference: {fileID: 0}
     - target: {fileID: 2169511060281306540, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_FontData.m_Alignment

@@ -16099,7 +16099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224355931}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -191.20953, y: -1.4304962, z: 89.801895}
+  m_LocalPosition: {x: -191.19156, y: -1.430542, z: 89.801895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 250230678}
@@ -28941,7 +28941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2169511060281306540, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_Text
-      value: "\u4F60\u65E0\u6076\u4E0D\u4F5C\uFF0C\u7AED\u6CFD\u800C\u6E14\n\u7834\u574F\u73AF\u5883\uFF0C\u6C11\u4E0D\u804A\u751F\n\u6211\u5FC5\u5C06\u548C\u4F60\u51B3\u4E00\u6B7B\u6218\n\u593A\u56DE\u201C\u6E90\u201C\u6240\u8D4B\u4E88\u4F60\u7684\u4E00\u5207"
+      value: "\u4F60\u65E0\u6076\u4E0D\u4F5C\uFF0C\u7AED\u6CFD\u800C\u6E14\n\u7834\u574F\u73AF\u5883\uFF0C\u6C11\u4E0D\u804A\u751F\n\u6211\u5FC5\u5C06\u548C\u4F60\u51B3\u4E00\u6B7B\u6218\n\u201C\u6E90\u201C\u6240\u8D4B\u4E88\u4F60\u7684\u4E00\u5207\n\u90FD\u4F1A\u7531\u6211\u8FD8\u7ED9\u4EBA\u6C11"
       objectReference: {fileID: 0}
     - target: {fileID: 2169511060281306540, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_Color.b
@@ -28969,11 +28969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4730317090916907263, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 199
+      value: -195
       objectReference: {fileID: 0}
     - target: {fileID: 4730317090916907263, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 305
+      value: 294
       objectReference: {fileID: 0}
     - target: {fileID: 7333680092375351013, guid: 657656ab47fab7747a766b9b5b9fd8e7, type: 3}
       propertyPath: m_IsActive
