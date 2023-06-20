@@ -18,7 +18,7 @@ public class ButtonManagerMenu : MonoBehaviour
     //public GameObject pauseFirstButton, optionsFirstButton, optionsCloseButton;
     public void StartGame()
     {
-        SceneManager.LoadScene("NewVillage");
+        SceneManager.LoadScene("NewIntro1");
 
         Time.timeScale = 1;
     }
