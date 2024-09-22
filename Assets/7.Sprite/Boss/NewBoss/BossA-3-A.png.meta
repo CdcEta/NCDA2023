@@ -66,7 +66,7 @@ TextureImporter:
       213: -4262897380035945244
     second: BossA-3-A_20
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -87,6 +87,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -125,6 +126,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -140,6 +142,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -606,6 +620,28 @@ TextureImporter:
     secondaryTextures:
     - texture: {fileID: 2800000, guid: 44432cd3d5a55644594223ce0fb41a77, type: 3}
       name: _Emission
+    nameFileIdTable:
+      BossA-3-A_0: -149521058526662885
+      BossA-3-A_9: 1058553808251447651
+      BossA-3-A_3: -388268580249853995
+      BossA-3-A_17: 997274809568241228
+      BossA-3-A_8: 4459707510267215667
+      BossA-3-A_1: -2706249343157773001
+      BossA-3-A_13: 8647190335300154396
+      BossA-3-A_14: -7286032274515551356
+      BossA-3-A_11: 8169561037133237896
+      BossA-3-A_5: -3447530570080506781
+      BossA-3-A_20: -4262897380035945244
+      BossA-3-A_16: -2687730849205314672
+      BossA-3-A_10: -6884227021123812436
+      BossA-3-A_18: -1075479559143157112
+      BossA-3-A_6: 3713824884787596282
+      BossA-3-A_2: -4714704282407081581
+      BossA-3-A_4: -4754517291951288247
+      BossA-3-A_15: 2185078837995991612
+      BossA-3-A_7: -6162714804070995022
+      BossA-3-A_19: 6536719694876670478
+      BossA-3-A_12: -8431491419469716418
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

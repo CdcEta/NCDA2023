@@ -27,7 +27,7 @@ TextureImporter:
       213: -1831677882150188195
     second: PlayerJump_7
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -86,6 +87,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -304,6 +306,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      PlayerJump_6: 8744439205818513450
+      PlayerJump_0: 444702640956841479
+      PlayerJump_4: -2098300212452292270
+      PlayerJump_7: -1831677882150188195
+      PlayerJump_3: 8691810124558177054
+      PlayerJump_2: 496497603323687001
+      PlayerJump_1: -7941400250425145444
+      PlayerJump_5: -2178818368794951686
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

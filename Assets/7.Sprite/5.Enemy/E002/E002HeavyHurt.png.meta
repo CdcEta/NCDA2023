@@ -27,7 +27,7 @@ TextureImporter:
       213: -1043138659282552561
     second: E002HeavyHurt_7
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -86,6 +87,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -304,6 +306,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      E002HeavyHurt_2: 9023158914431418069
+      E002HeavyHurt_7: -1043138659282552561
+      E002HeavyHurt_1: -6811174670573655196
+      E002HeavyHurt_5: 1258518409856730461
+      E002HeavyHurt_4: -2749494083838453755
+      E002HeavyHurt_0: -5987484213463728885
+      E002HeavyHurt_3: 609051853336459139
+      E002HeavyHurt_6: 7921663991690109859
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

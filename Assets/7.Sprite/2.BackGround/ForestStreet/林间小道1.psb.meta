@@ -25,6 +25,7 @@ ScriptedImporter:
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
+    ignoreMasterTextureLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -46,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -79,7 +81,6 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: "\u8349\u5730\u524D\u666F"
@@ -103,7 +105,6 @@ ScriptedImporter:
       width: 1024
       height: 209
     spriteID: 710f04ca6a54f5f4cac1f6de480dac19
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -113,6 +114,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 2955}
+    spritePosition: {x: 0, y: -1}
   - name: "\u4EBA\u7269\u6A21\u578B"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -120,12 +122,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1562
-      y: 848
+      x: 1564
+      y: 2955
       width: 30
       height: 66
     spriteID: cba8cce06ba5772489f1451450c13e33
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -134,7 +135,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1125, y: 658}
+    uvTransform: {x: 1564, y: 2955}
+    spritePosition: {x: 437, y: 190}
   - name: "\u5C38\u4F53"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -142,12 +144,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1600
-      y: 848
+      x: 1602
+      y: 2955
       width: 47
       height: 42
     spriteID: 267faa6d9263be44398ebe622fc28514
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -156,7 +157,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1273, y: 657}
+    uvTransform: {x: 1602, y: 2955}
+    spritePosition: {x: 327, y: 191}
   - name: "\u80CC\u666F\u68111"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -169,7 +171,6 @@ ScriptedImporter:
       width: 850
       height: 831
     spriteID: 1ab930f8abc926d42bd0ca29e35d15fa
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,7 +179,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 962, y: 1907}
+    uvTransform: {x: 1036, y: 2068}
+    spritePosition: {x: 74, y: 161}
   - name: "\u96FE"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -191,7 +193,6 @@ ScriptedImporter:
       width: 1024
       height: 1024
     spriteID: ea5761304010ef241a2b822f84a3549d
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,6 +202,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 0, y: 0}
   - name: "\u8DEF\u706F"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -208,12 +210,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1509
-      y: 848
+      x: 1511
+      y: 2955
       width: 45
       height: 154
     spriteID: 0400059e5cd134d408e0bac408549030
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -222,7 +223,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1298, y: 662}
+    uvTransform: {x: 1511, y: 2955}
+    spritePosition: {x: 211, y: 186}
   - name: "\u7A3B\u8349\u4EBA"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -230,12 +232,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1036
-      y: 848
+      x: 1038
+      y: 2955
       width: 384
       height: 162
     spriteID: 83bf7859f442c2a4286467cd35d59fd9
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -244,7 +245,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 637, y: 662}
+    uvTransform: {x: 1038, y: 2955}
+    spritePosition: {x: 399, y: 186}
   - name: "\u6307\u8DEF\u724C"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -252,12 +254,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1428
-      y: 848
+      x: 1430
+      y: 2955
       width: 73
       height: 170
     spriteID: e76e61476378e804d80125f55e5f0f41
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -266,7 +267,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1037, y: 667}
+    uvTransform: {x: 1430, y: 2955}
+    spritePosition: {x: 391, y: 181}
   - name: "\u80CC\u666F\u68112"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -279,7 +281,6 @@ ScriptedImporter:
       width: 978
       height: 836
     spriteID: 4a161a96630b76e4f81939397c7489f0
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -288,7 +289,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1036, y: -149}
+    uvTransform: {x: 1036, y: 4}
+    spritePosition: {x: 0, y: 153}
   - name: "\u80CC\u666F\u8349\u57302"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -301,7 +303,6 @@ ScriptedImporter:
       width: 1024
       height: 879
     spriteID: 2e02ecd2752fdf64aade584c553090a9
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -310,7 +311,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 2025}
+    uvTransform: {x: 4, y: 2068}
+    spritePosition: {x: 0, y: 43}
   - name: "\u80CC\u666F"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -323,7 +325,6 @@ ScriptedImporter:
       width: 1024
       height: 1024
     spriteID: dde47bbde42219d469d79f8000f006bd
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -333,6 +334,20 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 1036}
+    spritePosition: {x: 0, y: 0}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
@@ -357,23 +372,31 @@ ScriptedImporter:
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
   mosaicLayers: 1
+  characterMode: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
-  importedTextureWidth: 2048
-  importedTextureHeight: 4096
-  documentSize: {x: 1024, y: 1024}
+  layerMappingOption: 2
+  generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 0
+  skeletonAssetReferenceID: 
   spriteCategoryList:
     categories: []
-  textureActualWidth: 2048
-  textureActualHeight: 4096
   spritePackingTag: 
   resliceFromLayer: 0
-  characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
+  - name: "\u78B0\u649E\u4F53\u79EF"
+    spriteName: 
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a1edb599db506dc4d96ec79df5519208
+    layerID: 131
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
   - name: "\u8349\u5730\u524D\u666F"
     spriteName: "\u8349\u5730\u524D\u666F"
     isGroup: 0
@@ -381,20 +404,29 @@ ScriptedImporter:
     spriteID: 710f04ca6a54f5f4cac1f6de480dac19
     layerID: 129
     mosaicPosition: {x: 4, y: 2955}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u4EBA\u7269\u6A21\u578B"
     spriteName: "\u4EBA\u7269\u6A21\u578B"
     isGroup: 0
     parentIndex: -1
     spriteID: cba8cce06ba5772489f1451450c13e33
     layerID: 136
-    mosaicPosition: {x: 1562, y: 848}
+    mosaicPosition: {x: 1564, y: 2955}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u5C38\u4F53"
     spriteName: "\u5C38\u4F53"
     isGroup: 0
     parentIndex: -1
     spriteID: 267faa6d9263be44398ebe622fc28514
     layerID: 143
-    mosaicPosition: {x: 1600, y: 848}
+    mosaicPosition: {x: 1602, y: 2955}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u80CC\u666F\u68111"
     spriteName: "\u80CC\u666F\u68111"
     isGroup: 0
@@ -402,6 +434,9 @@ ScriptedImporter:
     spriteID: 1ab930f8abc926d42bd0ca29e35d15fa
     layerID: 130
     mosaicPosition: {x: 1036, y: 2068}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u96FE"
     spriteName: "\u96FE"
     isGroup: 0
@@ -409,27 +444,39 @@ ScriptedImporter:
     spriteID: ea5761304010ef241a2b822f84a3549d
     layerID: 140
     mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u8DEF\u706F"
     spriteName: "\u8DEF\u706F"
     isGroup: 0
     parentIndex: -1
     spriteID: 0400059e5cd134d408e0bac408549030
     layerID: 147
-    mosaicPosition: {x: 1509, y: 848}
+    mosaicPosition: {x: 1511, y: 2955}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u7A3B\u8349\u4EBA"
     spriteName: "\u7A3B\u8349\u4EBA"
     isGroup: 0
     parentIndex: -1
     spriteID: 83bf7859f442c2a4286467cd35d59fd9
     layerID: 142
-    mosaicPosition: {x: 1036, y: 848}
+    mosaicPosition: {x: 1038, y: 2955}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u6307\u8DEF\u724C"
     spriteName: "\u6307\u8DEF\u724C"
     isGroup: 0
     parentIndex: -1
     spriteID: e76e61476378e804d80125f55e5f0f41
     layerID: 141
-    mosaicPosition: {x: 1428, y: 848}
+    mosaicPosition: {x: 1430, y: 2955}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u80CC\u666F\u68112"
     spriteName: "\u80CC\u666F\u68112"
     isGroup: 0
@@ -437,6 +484,9 @@ ScriptedImporter:
     spriteID: 4a161a96630b76e4f81939397c7489f0
     layerID: 132
     mosaicPosition: {x: 1036, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u80CC\u666F\u8349\u57302"
     spriteName: "\u80CC\u666F\u8349\u57302"
     isGroup: 0
@@ -444,6 +494,9 @@ ScriptedImporter:
     spriteID: 2e02ecd2752fdf64aade584c553090a9
     layerID: 138
     mosaicPosition: {x: 4, y: 2068}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u80CC\u666F"
     spriteName: "\u80CC\u666F"
     isGroup: 0
@@ -451,13 +504,14 @@ ScriptedImporter:
     spriteID: dde47bbde42219d469d79f8000f006bd
     layerID: 1
     mosaicPosition: {x: 4, y: 1036}
-  characterData:
-    bones: []
-    parts: []
-    dimension: {x: 0, y: 0}
-    characterGroups: []
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
   generateGOHierarchy: 0
   textureAssetName: "\u6797\u95F4\u5C0F\u90531 Texture"
   prefabAssetName: "\u6797\u95F4\u5C0F\u90531 Prefab"
   spriteLibAssetName: "\u6797\u95F4\u5C0F\u90531 Sprite Lib"
+  skeletonAssetName: 
   secondarySpriteTextures: []

@@ -57,7 +57,7 @@ TextureImporter:
       213: -8699701033298228370
     second: PlayerA-1-A_17
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -78,6 +78,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -116,6 +117,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -131,6 +133,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -534,6 +548,25 @@ TextureImporter:
     secondaryTextures:
     - texture: {fileID: 2800000, guid: 7c00a5ab12c1da34d92cbcf574530e64, type: 3}
       name: _Emission
+    nameFileIdTable:
+      PlayerA-1-A_15: -7041024130631024097
+      PlayerA-1-A_14: -4511797499892909567
+      PlayerA-1-A_0: 3831079289998977203
+      PlayerA-1-A_10: 6369141810164925487
+      PlayerA-1-A_3: 9097060130229021290
+      PlayerA-1-A_16: -7607764294636294849
+      PlayerA-1-A_13: -2546130098960395069
+      PlayerA-1-A_12: -6597447339856025136
+      PlayerA-1-A_5: 4799003375185335846
+      PlayerA-1-A_2: -7810351465505156371
+      PlayerA-1-A_1: 5170482971658202250
+      PlayerA-1-A_6: 2222494288430581254
+      PlayerA-1-A_8: 2355830937605444114
+      PlayerA-1-A_9: -1005724522479035551
+      PlayerA-1-A_11: 7518649961705296183
+      PlayerA-1-A_17: -8699701033298228370
+      PlayerA-1-A_7: -6055765459845366558
+      PlayerA-1-A_4: 5183431464652558969
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

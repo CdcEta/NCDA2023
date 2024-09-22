@@ -21,6 +21,4 @@ MonoBehaviour:
   ArrowImage: {fileID: 21300000, guid: d1aab08746c7d4142bf805a229a96179, type: 3}
   itemInfo: 
   level: 1
-  WeaponAttackPower: 07000000140000001e000000
-  magnification:
-  - 1
+  WeaponAttackPower: 50

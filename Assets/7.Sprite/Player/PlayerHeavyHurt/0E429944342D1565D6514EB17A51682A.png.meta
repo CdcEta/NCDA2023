@@ -36,7 +36,7 @@ TextureImporter:
       213: -3468876098043356833
     second: 0E429944342D1565D6514EB17A51682A_10
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -57,6 +57,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -95,6 +96,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -376,6 +378,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      0E429944342D1565D6514EB17A51682A_10: -3468876098043356833
+      0E429944342D1565D6514EB17A51682A_7: -4816403548232907494
+      0E429944342D1565D6514EB17A51682A_4: 915793111245408933
+      0E429944342D1565D6514EB17A51682A_2: 6601869006796942780
+      0E429944342D1565D6514EB17A51682A_3: -5675814433879471639
+      0E429944342D1565D6514EB17A51682A_0: 1075337235568423432
+      0E429944342D1565D6514EB17A51682A_8: -6318272651194048168
+      0E429944342D1565D6514EB17A51682A_1: -7671235985806268373
+      0E429944342D1565D6514EB17A51682A_5: -3197048275846636345
+      0E429944342D1565D6514EB17A51682A_9: 825315500796393241
+      0E429944342D1565D6514EB17A51682A_6: 802453625510407407
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

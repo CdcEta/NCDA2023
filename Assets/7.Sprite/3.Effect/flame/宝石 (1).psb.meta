@@ -25,6 +25,7 @@ ScriptedImporter:
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
+    ignoreMasterTextureLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -46,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -79,7 +81,6 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: "\u5B9D\u77F33"
@@ -103,7 +105,6 @@ ScriptedImporter:
       width: 42
       height: 67
     spriteID: ad7f7a9d4e1c53840a110608fbcfe3f7
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -112,7 +113,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -281, y: 120}
+    uvTransform: {x: 4, y: 153}
+    spritePosition: {x: 285, y: 33}
   - name: "\u5B9D\u77F32"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -125,7 +127,6 @@ ScriptedImporter:
       width: 46
       height: 65
     spriteID: 7e3e5958b37981843b679048c1db1881
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -134,7 +135,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -158, y: -29}
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 162, y: 33}
   - name: "\u5B9D\u77F31"
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -147,7 +149,6 @@ ScriptedImporter:
       width: 43
       height: 68
     spriteID: 894144f03bb6d05438d03bfbc695c846
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -156,24 +157,36 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -33, y: 45}
+    uvTransform: {x: 4, y: 77}
+    spritePosition: {x: 37, y: 32}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
   platformSettings: []
   mosaicLayers: 1
+  characterMode: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
-  importedTextureWidth: 128
-  importedTextureHeight: 256
-  documentSize: {x: 407, y: 128}
+  layerMappingOption: 2
+  generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 0
+  skeletonAssetReferenceID: 
   spriteCategoryList:
     categories: []
-  textureActualWidth: 128
-  textureActualHeight: 256
   spritePackingTag: 
   resliceFromLayer: 0
-  characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: "\u5B9D\u77F33"
@@ -183,6 +196,9 @@ ScriptedImporter:
     spriteID: ad7f7a9d4e1c53840a110608fbcfe3f7
     layerID: 11
     mosaicPosition: {x: 4, y: 153}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u5B9D\u77F32"
     spriteName: "\u5B9D\u77F32"
     isGroup: 0
@@ -190,6 +206,9 @@ ScriptedImporter:
     spriteID: 7e3e5958b37981843b679048c1db1881
     layerID: 6
     mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: "\u5B9D\u77F31"
     spriteName: "\u5B9D\u77F31"
     isGroup: 0
@@ -197,13 +216,14 @@ ScriptedImporter:
     spriteID: 894144f03bb6d05438d03bfbc695c846
     layerID: 3
     mosaicPosition: {x: 4, y: 77}
-  characterData:
-    bones: []
-    parts: []
-    dimension: {x: 0, y: 0}
-    characterGroups: []
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
   generateGOHierarchy: 0
   textureAssetName: "\u5B9D\u77F3 (1) Texture"
   prefabAssetName: "\u5B9D\u77F3 (1) Prefab"
   spriteLibAssetName: "\u5B9D\u77F3 (1) Sprite Lib"
+  skeletonAssetName: 
   secondarySpriteTextures: []

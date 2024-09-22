@@ -51,7 +51,7 @@ TextureImporter:
       213: 2548495278401402161
     second: BossA-2-A_15
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -110,6 +111,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -125,6 +127,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -486,6 +500,23 @@ TextureImporter:
     secondaryTextures:
     - texture: {fileID: 2800000, guid: 62b38e4214bbaaa46bac83131f568951, type: 3}
       name: _Emission
+    nameFileIdTable:
+      BossA-2-A_12: 4230508830009395275
+      BossA-2-A_10: 1388499094628802614
+      BossA-2-A_6: -7375591409409813827
+      BossA-2-A_15: 2548495278401402161
+      BossA-2-A_7: -5097453965971826029
+      BossA-2-A_13: -3201665797265797454
+      BossA-2-A_0: 3917785180200063908
+      BossA-2-A_11: -4697066035335553406
+      BossA-2-A_2: 964267401025118850
+      BossA-2-A_3: -3510104196546439902
+      BossA-2-A_4: -7172180895511035943
+      BossA-2-A_14: 3514761862092057981
+      BossA-2-A_5: 1852317911304320691
+      BossA-2-A_1: -5290078509996214596
+      BossA-2-A_9: 1209319383097451712
+      BossA-2-A_8: -6117117123963700669
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
